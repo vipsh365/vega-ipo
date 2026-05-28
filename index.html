@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vega Industries — The 36-Month Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0A0E1A;
+  --ink-2: #1A1F2E;
+  --ink-3: #2E3548;
+  --paper: #F7F5F0;
+  --paper-2: #EFEBE2;
+  --rule: #D8D2C5;
+  --rule-2: #C8C2B5;
+  --muted: #5C6573;
+  --muted-2: #8A8F9C;
+  --accent: #1E3A8A;
+  --accent-2: #2554C7;
+  --oxblood: #A8253A;
+  --signal-green: #2D6A4F;
+  --signal-red: #A8253A;
+  --signal-amber: #B8860B;
+  --gold: #C9A961;
+  --signal-blue: #1E3A8A;
+
+  --serif: 'Spectral', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'IBM Plex Mono', 'Menlo', monospace;
+
+  --nav-w: 240px;
+  --gutter-w: 240px;
+  --content-w: 760px;
+  --content-max: calc(var(--nav-w) + var(--content-w) + var(--gutter-w) + 80px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============ LAYOUT SHELL ============ */
+.shell {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: var(--nav-w) 1fr var(--gutter-w);
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.nav-rail {
+  grid-column: 1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 32px 0;
+  border-right: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.nav-brand {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  padding-right: 24px;
+}
+.nav-sub {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 32px;
+  padding-right: 24px;
+}
+
+.nav-group {
+  margin-bottom: 24px;
+}
+.nav-group-label {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted-2);
+  margin-bottom: 8px;
+  padding-right: 24px;
+}
+.nav-item {
+  display: block;
+  padding: 5px 0;
+  padding-right: 24px;
+  color: var(--ink-3);
+  font-weight: 400;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+  margin-left: -12px;
+  transition: all 0.15s;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-family: var(--sans);
+}
+.nav-item:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-item.active {
+  color: var(--ink);
+  border-left-color: var(--accent);
+  font-weight: 500;
+}
+.nav-item .nav-num {
+  display: inline-block;
+  width: 22px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+}
+.nav-item.active .nav-num { color: var(--accent); }
+
+.content {
+  grid-column: 2;
+  padding: 80px 0 120px;
+  min-width: 0;
+}
+
+.gutter {
+  grid-column: 3;
+  padding: 80px 0;
+  position: relative;
+}
+
+/* ============ TOP META BAR ============ */
+.meta-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.meta-bar .meta-l { display: flex; gap: 24px; }
+.meta-bar .meta-r { display: flex; gap: 24px; }
+.meta-bar strong { color: var(--ink); font-weight: 600; }
+
+/* ============ TYPOGRAPHY ============ */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.eyebrow .eyebrow-num {
+  color: var(--muted-2);
+  margin-right: 10px;
+}
+
+h1.hero {
+  font-family: var(--serif);
+  font-size: 64px;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+h1.hero em {
+  font-style: italic;
+  color: var(--ink-3);
+}
+
+h2.section-h {
+  font-family: var(--serif);
+  font-size: 42px;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--ink);
+  margin-top: 80px;
+  margin-bottom: 8px;
+  scroll-margin-top: 20px;
+}
+h2.section-h em { font-style: italic; color: var(--ink-3); }
+
+.section-sub {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 24px;
+}
+
+h3.sub-h {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+
+h4.mini-h {
+  font-family: var(--sans);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-bottom: 16px;
+  color: var(--ink-2);
+  font-size: 14.5px;
+}
+
+p.lede {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 400;
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
+}
+
+strong { color: var(--ink); font-weight: 600; }
+
+ul, ol { margin: 0 0 18px 22px; }
+li { margin-bottom: 6px; color: var(--ink-2); }
+
+/* ============ TABLES (Bloomberg Terminal feel) ============ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0 24px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+}
+table.data {
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+thead th {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 12px 8px;
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+}
+tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  color: var(--ink-2);
+}
+tbody tr:last-child td { border-bottom: 1.5px solid var(--ink); }
+tbody tr:hover td { background: var(--paper-2); }
+
+td.num, th.num { text-align: right; font-family: var(--mono); font-feature-settings: 'tnum'; }
+td.center, th.center { text-align: center; }
+td.bold, td strong { color: var(--ink); }
+
+/* small inline tables inside callouts */
+table.tight thead th { padding: 7px 10px 6px; }
+table.tight tbody td { padding: 7px 10px; }
+
+/* ============ CALLOUTS ============ */
+.callout {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 28px 32px;
+  margin: 32px 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.callout em { font-style: italic; color: var(--paper-2); }
+.callout-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.box {
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  margin: 20px 0;
+  background: rgba(255,255,255,0.4);
+}
+.box-h {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.box.warn { border-left: 3px solid var(--signal-amber); }
+.box.warn .box-h { color: var(--signal-amber); }
+.box.alert { border-left: 3px solid var(--signal-red); }
+.box.alert .box-h { color: var(--signal-red); }
+.box.ok { border-left: 3px solid var(--signal-green); }
+.box.ok .box-h { color: var(--signal-green); }
+
+/* ============ KPI STRIP ============ */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 28px 0;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+}
+.kpi {
+  padding: 16px 18px;
+  border-right: 1px solid var(--rule);
+}
+.kpi:last-child { border-right: none; }
+.kpi-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.kpi-val {
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.kpi-delta {
+  font-family: var(--mono);
+  font-size: 10px;
+  margin-top: 4px;
+  color: var(--muted);
+}
+.kpi-delta.up { color: var(--signal-green); }
+.kpi-delta.down { color: var(--signal-red); }
+.kpi-delta.warn { color: var(--signal-amber); }
+
+/* ============ BADGES ============ */
+.badge {
+  display: inline-block;
+  padding: 2px 7px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.badge.tier-0 { background: var(--ink); color: var(--paper); }
+.badge.tier-1 { background: var(--accent); color: var(--paper); }
+.badge.tier-2 { background: var(--gold); color: var(--ink); }
+.badge.reject { background: var(--paper-2); color: var(--muted); border: 1px solid var(--rule-2); }
+.badge.confirmed { background: var(--signal-green); color: var(--paper); }
+.badge.inferred { background: var(--paper-2); color: var(--ink-3); border: 1px solid var(--rule-2); }
+.badge.contrarian { background: var(--oxblood); color: var(--paper); }
+.badge.green { background: rgba(45,106,79,0.12); color: var(--signal-green); }
+.badge.red { background: rgba(168,37,58,0.12); color: var(--signal-red); }
+.badge.amber { background: rgba(184,134,11,0.12); color: var(--signal-amber); }
+.badge.blue { background: rgba(30,58,138,0.12); color: var(--accent); }
+
+/* ============ GUTTER MARGINALIA ============ */
+.gutter-note {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 24px;
+}
+.gutter-note-h {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* ============ FOOTNOTE CITATION ============ */
+sup.cite {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--accent);
+  font-weight: 600;
+  vertical-align: super;
+  padding: 0 2px;
+  cursor: help;
+}
+
+/* ============ HERO ============ */
+.hero-block {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 40px;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.hero-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+.hero-meta-item .hml {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hero-meta-item .hmv {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ============ FIVE-ASK MAP ============ */
+.ask-map {
+  margin: 28px 0 24px;
+  border-top: 1.5px solid var(--ink);
+}
+.ask-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1.2fr;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.ask-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+  font-style: italic;
+}
+.ask-q {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 400;
+}
+.ask-q .ask-q-meta {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  font-style: normal;
+  margin-bottom: 6px;
+}
+.ask-a {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.ask-a strong { color: var(--ink); }
+
+/* ============ SYMPTOM / EVIDENCE ============ */
+.symptom {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.symptom-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.symptom-num strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+  margin-top: 4px;
+  font-style: italic;
+}
+.symptom-body h4 {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.3;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.symptom-body p { font-size: 13.5px; margin-bottom: 8px; }
+
+/* ============ BET CARD ============ */
+.bet {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.bet-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+.bet-rank {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  width: 26px;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+.bet-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  flex-grow: 1;
+}
+.bet-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 8px 0 8px 40px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+.bet-meta strong { color: var(--ink); font-family: var(--mono); }
+.bet-meta-l { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 2px; }
+.bet-rationale {
+  margin: 6px 0 0 40px;
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+/* ============ TIMELINE ============ */
+.timeline {
+  border-top: 1.5px solid var(--ink);
+  margin: 24px 0;
+}
+.tl-row {
+  display: grid;
+  grid-template-columns: 90px 110px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.tl-t {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.tl-date {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+.tl-body { color: var(--ink-2); }
+.tl-body strong { color: var(--ink); }
+
+/* ============ DECISION CHECKLIST ============ */
+.decision {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.decision-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--ink);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.decision-body {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.decision-body strong { font-weight: 600; }
+.decision-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 4px;
+  font-style: normal;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  grid-column: 1 / -1;
+  margin-top: 80px;
+  padding: 40px 0;
+  border-top: 1.5px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .sig-block {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1180px) {
+  .shell {
+    grid-template-columns: 200px 1fr 200px;
+    gap: 24px;
+  }
+}
+@media (max-width: 980px) {
+  .shell {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 24px;
+  }
+  .nav-rail {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 0;
+  }
+  .nav-group { display: inline-block; margin-right: 32px; margin-bottom: 12px; }
+  .gutter { display: none; }
+  .content { padding: 40px 0; }
+  h1.hero { font-size: 42px; }
+  h2.section-h { font-size: 30px; }
+  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  .ask-row { grid-template-columns: 40px 1fr; }
+  .ask-a { grid-column: 1 / -1; margin-top: 6px; }
+  .bet-meta { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============ PRINT ============ */
+@media print {
+  :root {
+    --paper: #FFFFFF;
+    --rule: #999;
+    --rule-2: #777;
+  }
+  body { font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: 100%; }
+  .nav-rail, .gutter, .meta-bar { display: none; }
+  .content { padding: 0; }
+  h1.hero { font-size: 42pt; }
+  h2.section-h { font-size: 22pt; page-break-before: always; }
+  h2.section-h:first-of-type { page-break-before: avoid; }
+  .callout { background: #f0f0f0 !important; color: #000 !important; }
+  .callout em { color: #333 !important; }
+  table { page-break-inside: avoid; }
+  .bet { page-break-inside: avoid; }
+  a { color: #000; text-decoration: none; }
+  sup.cite { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<!-- ========== TOP META BAR ========== -->
+<div class="meta-bar">
+  <div class="meta-l">
+    <span><strong>VEGA INDUSTRIES PVT LTD</strong></span>
+    <span>CIN U74899DL1995PTC066449</span>
+  </div>
+  <div class="meta-r">
+    <span>Confidential</span>
+    <span>Prepared 28 May 2026</span>
+    <span>Rev 2.0</span>
+  </div>
+</div>
+
+<!-- ========== NAV RAIL ========== -->
+<nav class="nav-rail" id="navRail">
+  <div class="nav-brand">Vega</div>
+  <div class="nav-sub">The 36-Month Blueprint</div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Frame</div>
+    <a class="nav-item active" href="#hero"><span class="nav-num">00</span>Cover</a>
+    <a class="nav-item" href="#summary"><span class="nav-num">01</span>Executive Summary</a>
+    <a class="nav-item" href="#diagnosis"><span class="nav-num">02</span>Diagnosis</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Five Goals</div>
+    <a class="nav-item" href="#goal-1"><span class="nav-num">03</span>Operating System</a>
+    <a class="nav-item" href="#goal-2"><span class="nav-num">04</span>Diversification</a>
+    <a class="nav-item" href="#goal-3"><span class="nav-num">05</span>IPO-Ready Org</a>
+    <a class="nav-item" href="#goal-4"><span class="nav-num">06</span>Future Path</a>
+    <a class="nav-item" href="#goal-5"><span class="nav-num">07</span>Velocity &amp; Clarity</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Execute</div>
+    <a class="nav-item" href="#plan-90"><span class="nav-num">08</span>90-Day Plan</a>
+    <a class="nav-item" href="#plan-12"><span class="nav-num">09</span>12-Month Plan</a>
+    <a class="nav-item" href="#ipo-path"><span class="nav-num">10</span>36-Month IPO Path</a>
+    <a class="nav-item" href="#decisions"><span class="nav-num">11</span>Decisions This Week</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Reference</div>
+    <a class="nav-item" href="#appendix"><span class="nav-num">12</span>Appendix</a>
+  </div>
+</nav>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="content">
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero-block">
+  <div class="hero-eyebrow">Strategic Blueprint · Prepared for Shri Sandeep Jain, CMD</div>
+  <h1 class="hero">Vega — <em>The 36-Month Blueprint</em></h1>
+  <p class="lede">A response to the five questions raised by the CMD: how to institutionalise the founder-led business, where to diversify, how to clear the IPO governance bar in 36 months, how to defend the portfolio against converging threats, and how to turn slow growth into category leadership.</p>
+
+  <div class="hero-meta-grid">
+    <div class="hero-meta-item">
+      <div class="hml">Revenue Today</div>
+      <div class="hmv">₹283 cr FY25<br><span style="font-family:var(--mono); font-size:11px; color:var(--muted);">+4.43% YoY</span></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hml">Target FY30</div>
+      <div class="hmv">₹900–1,000 cr<br><span style="font-family:var(--mono); font-size:11px; color:var(--signal-green);">28–30% CAGR</span></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hml">IPO Window</div>
+      <div class="hmv">May 2029<br><span style="font-family:var(--mono); font-size:11px; color:var(--accent);">SEBI ICDR Reg 6(1)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXECUTIVE SUMMARY ===== -->
+<section id="summary">
+  <div class="eyebrow"><span class="eyebrow-num">01</span>Executive Summary</div>
+  <h2 class="section-h">Five questions, <em>five answers.</em></h2>
+  <p class="section-sub">Each ask is restated verbatim. Each answer is grounded in 285 verified facts across 58 research files and 24 parallel strategy hunters. Every figure cited in this document is footnote-traceable to source.</p>
+
+  <div class="ask-map">
+
+    <div class="ask-row">
+      <div class="ask-num">1</div>
+      <div class="ask-q">
+        <span class="ask-q-meta">The Operating System Ask</span>
+        "Company is led by me individually. I want it modulated, systematic, process-driven — supply chain, MIS, inventory and forecasting."
+      </div>
+      <div class="ask-a">
+        Install a <strong>three-layer operating system</strong>: SAP S/4 HANA Cloud RISE (ERP backbone) + AI-MIS bot stack with daily 6 AM auto-reports + S&amp;OP cadence with 4-warehouse hub-and-spoke (Noida + Bhiwandi + Hosur + Kolkata). Total 7-yr TCO ₹107–168 cr (1.5–2.5% of cumulative revenue). Cutover April 2027; two audited Ind AS years before DRHP.
+      </div>
+    </div>
+
+    <div class="ask-row">
+      <div class="ask-num">2</div>
+      <div class="ask-q">
+        <span class="ask-q-meta">The Diversification Ask</span>
+        "Tell me what streams of business the company can diversify into."
+      </div>
+      <div class="ask-a">
+        <strong>30 candidates surfaced; eight TIER-0 bets multi-confirmed</strong>: Salon B2B tools (₹75–125 cr Y3), Indeutsch cosmetic-brush B2B PL consolidation, Carbon-fibre B2B via Bharat+NitPro group carve-in, Subscription consumables aftermarket, Hard-water + humidity climate-adaptive hardware. <strong>22 TIER-1/2 bets ranked + 16 explicit rejects</strong> (athleisure, kettles, diapers, smart toilets, OTC hearing aids).
+      </div>
+    </div>
+
+    <div class="ask-row">
+      <div class="ask-num">3</div>
+      <div class="ask-q">
+        <span class="ask-q-meta">The IPO-Ready Ask</span>
+        "IPO in 3 years. Team structuring, right hires, BD India + international, product dev, complete restructuring by CEO."
+      </div>
+      <div class="ask-a">
+        Hire <strong>professional CEO and CFO by November 2026</strong> — Karve (CFO, available now) and Nandi/Job (CEO) windows close inside 12 months. Complete KMP slate by T-22 (Jul 2027). Five Independent Directors by Q4 FY27. Pre-IPO PE round Q3-Q4 FY27 with Lighthouse + Marico strategic + Multiples — ₹250–350 cr at ₹1,800–2,200 cr.
+      </div>
+    </div>
+
+    <div class="ask-row">
+      <div class="ask-num">4</div>
+      <div class="ask-q">
+        <span class="ask-q-meta">The Future Path Ask</span>
+        "What should the company's path be — defend portfolio, grow, safeguard from competitors?"
+      </div>
+      <div class="ask-a">
+        Defend three strongholds (hair-brush #1 share, hair-dryer 10%, ₹500–2,500 trimmer ladder) with category captaincy at Tira, Nykaa Luxe, Reliance Smart. Counter-play per named threat: don't fight Havells head-on in appliances (carve salon white space); pre-empt BSC's DRHP timing race; out-spend Lifelong on Amazon SOS; convert Reliance Retail PL threat into Rise OEM revenue.
+      </div>
+    </div>
+
+    <div class="ask-row">
+      <div class="ask-num">5</div>
+      <div class="ask-q">
+        <span class="ask-q-meta">The Trendsetter Ask</span>
+        "Vega is growing slow, lacks direction — needs to be a trendsetter."
+      </div>
+      <div class="ask-a">
+        Five doctrine shifts: founder-led → doctrine-led; grooming brush → beauty-tools platform; trade-push → consumer-pull; mass → mass-premium; mute → loud. Build the <strong>Vega Beauty Lab</strong> (Noida, May 2028), the <strong>Vega Bharat Beauty Index</strong> (annual, Kantar + IIM-A co-published), the <strong>Vega Stylist Awards</strong> (May 2028), and the <strong>Vega Founders Fund</strong> (₹75 cr corpus). Reframe identity to <em>"Tools of Indian Beauty"</em>.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-meta">The One Number That Must Move</div>
+    Revenue ₹283 cr (FY25) → ₹600–750 cr (FY29) → ₹1,000+ cr (FY30) at 28–30% CAGR. <em>Everything else is downstream of this.</em>
+  </div>
+
+  <div class="kpi-strip">
+    <div class="kpi">
+      <div class="kpi-label">FY29 Revenue Target</div>
+      <div class="kpi-val">₹700 cr</div>
+      <div class="kpi-delta up">▲ 2.5× base</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">FY29 EBITDA Margin</div>
+      <div class="kpi-val">16%</div>
+      <div class="kpi-delta up">▲ from 9.5%</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">FY29 IPO Mkt-Cap</div>
+      <div class="kpi-val">₹3,500–4,500 cr</div>
+      <div class="kpi-delta">Base case · 50% prob</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">36-mo Capital Outlay</div>
+      <div class="kpi-val">~₹780 cr</div>
+      <div class="kpi-delta">Capex + Opex + Founders Fund</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIAGNOSIS ===== -->
+<section id="diagnosis">
+  <div class="eyebrow"><span class="eyebrow-num">02</span>Diagnosis</div>
+  <h2 class="section-h">Why growth has stalled. <em>The evidence.</em></h2>
+  <p class="section-sub">Five symptoms. Each verified across multiple primary sources. Each maps 1:1 to one of the five asks. The blueprint is structured around fixing them in order of structural leverage, not in order of visibility.</p>
+
+  <div class="symptom">
+    <div class="symptom-num">Symptom<strong>01</strong></div>
+    <div class="symptom-body">
+      <h4>Revenue grew 4.4% in FY25 while the category grew 12–18%.</h4>
+      <p>FY25 revenue ₹283 cr versus FY24 ₹271 cr (+4.43%). India hair-dryer projected 8.1% CAGR (USD 813 mn → USD 2.1 bn by 2035, industrytoday.co.uk). India PCA hair-care alone growing 12–18% (Ken Research). Vega is under-growing its category by 7–13 percentage points. Multi-year FY22 → FY25 CAGR is ~3–4%. The headline 75% Made-in-India target by 2028 is partly an acknowledgement that volumes must re-accelerate to fund Yamuna.<sup class="cite">1</sup></p>
+    </div>
+  </div>
+
+  <div class="symptom">
+    <div class="symptom-num">Symptom<strong>02</strong></div>
+    <div class="symptom-body">
+      <h4>Profitability has rolled over while debt has tripled.</h4>
+      <p>PAT –11.38% YoY in FY25. Borrowings +203.88% YoY. Total live HDFC charges ₹50.30 cr — single-bank exposure, zero PSU lender. Debt-to-equity moved from sub-0.05× to 0.21× in one year. Networth +12.39% (FY25 ~₹238 cr inferred) saved the ratios — but the trajectory is profit dilution, not profit compounding. The ₹48 cr HDFC term loan was created 11-Jun-2025 (post-FY25 close); FY26 finance cost steps up materially.<sup class="cite">2</sup></p>
+    </div>
+  </div>
+
+  <div class="symptom">
+    <div class="symptom-num">Symptom<strong>03</strong></div>
+    <div class="symptom-body">
+      <h4>There is no C-suite below you.</h4>
+      <p>No public signal of a CFO, COO, CHRO, CTO/CIO, Head Supply Chain, Head Procurement, Head R&amp;D, Head Exports, or named Company Secretary. R&amp;D headcount estimated sub-2% of workforce. You are the operating layer <em>and</em> the strategic layer <em>and</em> the founder layer <em>and</em> the KnitPro Group CEO layer — simultaneously. This is the structural ceiling on velocity, and the biggest single fix in the blueprint.<sup class="cite">3</sup></p>
+    </div>
+  </div>
+
+  <div class="symptom">
+    <div class="symptom-num">Symptom<strong>04</strong></div>
+    <div class="symptom-body">
+      <h4>Competitors are converging on Vega's price points and channels.</h4>
+      <p>Havells ₹21,778 cr FY25 (77× Vega) is dialling up PCA. Philips holds 20% hair-dryer share. Agaro / UCL group hit ₹1,910 cr FY25 — predominantly D2C. Lifelong Online ₹540 cr FY25 — Amazon-dominant. Bombay Shaving Company ₹271 cr FY25 (now near-parity), filing IPO in 18–24 months — and explicitly moving into appliances. Vega's 10% hair-dryer share is contestable from above (Philips/Dyson) <em>and</em> from below (Kemei/Nova/Lifelong/BSC).<sup class="cite">4</sup></p>
+    </div>
+  </div>
+
+  <div class="symptom">
+    <div class="symptom-num">Symptom<strong>05</strong></div>
+    <div class="symptom-body">
+      <h4>The KnitPro family overlap is an IPO landmine if untouched.</h4>
+      <p>You are simultaneously Vega CMD and KnitPro International CEO. Rup Chand Jain founded KnitPro. Shirish Jain is EVP KnitPro and director on Vega Pvt Ltd. Indeutsch (KnitPro group) owns the KnitPro trademark. Vega Pvt Ltd (1994) shares directors and address with Vega Industries. Estimated annual RPT flows ₹30–75 cr (10–26% of revenue) — exceed SEBI LODR Reg 23 threshold (10% revenue = ₹28.3 cr). Mandatory cleanup pre-DRHP via transfer-pricing study, arm's-length contracts, and Audit Committee scrutiny.<sup class="cite">5</sup></p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-meta">The Asymmetric Read</div>
+    Symptoms 1, 2 and 4 are visible to anyone reading Tofler. Symptoms 3 and 5 are <em>invisible to public market</em> today — but will be the first two findings any Big-4 IPO advisor flags in their Week-1 diagnostic. The blueprint's sequencing puts the invisible ones first.
+  </div>
+</section>
+
+<!-- ===== PILLAR 1: OPERATING SYSTEM ===== -->
+<section id="goal-1">
+  <div class="eyebrow"><span class="eyebrow-num">03</span>Pillar 01 · The Operating System</div>
+  <h2 class="section-h">From founder judgement <em>to operating rhythm.</em></h2>
+  <p class="section-sub">A founder-built business runs on judgement; an IPO-bound business runs on rhythm. Judgement scales linearly with the founder's hours. Rhythm scales infinitely. This pillar installs the rhythm in three layers — ERP backbone, AI-MIS bot stack, supply-chain hub-and-spoke — with a 36-month sequencing that has the ERP cutover before the DRHP audit window.</p>
+
+  <h3 class="sub-h">Layer 01 — ERP Backbone</h3>
+  <p>Comparative evaluation across SAP S/4 HANA Cloud RISE, Oracle Fusion Cloud, Microsoft Dynamics 365 Business Central, Infor M3, and Odoo Enterprise. Vega's profile (₹283 cr → ₹1,000 cr, 700+ SKU light-discrete assembly, multi-channel, IPO 2029) was scored against eight weighted dimensions.</p>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th class="num">India impl. depth</th>
+        <th class="num">FMCG/CDIT refs</th>
+        <th class="num">GST native</th>
+        <th class="num">Discrete-mfg fit</th>
+        <th class="num">7-yr TCO</th>
+        <th class="num">IPO audit grade</th>
+        <th class="num">Weighted score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>SAP S/4 HANA RISE</strong></td>
+        <td class="num">9</td>
+        <td class="num">10</td>
+        <td class="num">9</td>
+        <td class="num">9</td>
+        <td class="num">4</td>
+        <td class="num">10</td>
+        <td class="num"><strong>8.45</strong></td>
+      </tr>
+      <tr>
+        <td>Oracle Fusion Cloud</td>
+        <td class="num">7</td>
+        <td class="num">7</td>
+        <td class="num">8</td>
+        <td class="num">8</td>
+        <td class="num">5</td>
+        <td class="num">10</td>
+        <td class="num">7.45</td>
+      </tr>
+      <tr>
+        <td>D365 Business Central</td>
+        <td class="num">8</td>
+        <td class="num">6</td>
+        <td class="num">9</td>
+        <td class="num">7</td>
+        <td class="num">8</td>
+        <td class="num">8</td>
+        <td class="num">7.65</td>
+      </tr>
+      <tr>
+        <td>Infor M3 / CloudSuite</td>
+        <td class="num">5</td>
+        <td class="num">5</td>
+        <td class="num">6</td>
+        <td class="num">10</td>
+        <td class="num">6</td>
+        <td class="num">8</td>
+        <td class="num">6.55</td>
+      </tr>
+      <tr>
+        <td>Odoo Enterprise</td>
+        <td class="num">7</td>
+        <td class="num">5</td>
+        <td class="num">8</td>
+        <td class="num">6</td>
+        <td class="num">9</td>
+        <td class="num">6</td>
+        <td class="num">6.85</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box ok">
+    <div class="box-h">Recommendation · SAP S/4 HANA Cloud RISE Private Edition</div>
+    <p style="margin-bottom:6px;">Implementation partner: <strong>YASH Technologies as prime + LTIMindtree as PMO/governance overlay</strong>. YASH delivers Vega-scale economics; LTIMindtree provides the Marico/Crompton implementation playbook plus IPO-grade governance the DRHP underwriters expect. Reject Tier-1 only (TCS / Infosys) — Vega is sub-threshold ticket size and will be junior-partner-staffed.</p>
+    <p style="margin-bottom:0;">License (RISE 200 FUE) ₹4–6 cr/yr × 7 = ₹28–42 cr + Implementation ₹12–18 cr + AMS ₹8–12 cr → <strong>7-yr TCO ₹48–72 cr</strong>. Reference customers: Marico (S/4 migration FY23), Dabur (S/4 since 2020), Crompton, Havells, Symphony, TTK, Bajaj Electricals — the FMCG/CDIT standard in India.<sup class="cite">6</sup></p>
+  </div>
+
+  <h4 class="mini-h">ERP Sequencing</h4>
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-t">T-36</div><div class="tl-date">May 2026</div>
+      <div class="tl-body">RFP issued. Vendor + partner shortlist locked Q3 FY26.</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-t">T-32</div><div class="tl-date">Sep 2026</div>
+      <div class="tl-body"><strong>SAP S/4 + YASH + LTIMindtree contracts signed.</strong> Master-data cleanup project kickoff in parallel.</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-t">T-29</div><div class="tl-date">Apr 2027</div>
+      <div class="tl-body"><strong>Wave-1 cutover</strong> — FI/CO/MM/SD on Noida operating entity.</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-t">T-23</div><div class="tl-date">Oct 2027</div>
+      <div class="tl-body"><strong>Wave-2 cutover</strong> — PP/QM/WM full scope + Yamuna plant onboarded as separate plant code.</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-t">T-17</div><div class="tl-date">Apr 2028</div>
+      <div class="tl-body">Hyper-care closes. FY28 closed on S/4. <strong>Two full audited Ind AS years before DRHP filing.</strong></div>
+    </div>
+  </div>
+
+  <h3 class="sub-h">Layer 02 — The AI-MIS Bot Stack</h3>
+  <p>While the ERP procures (12–18 months), an interim AI-MIS layer is built on top of existing data — PowerBI on Tally extracts + scraped marketplace data — to deliver the "bot discipline" you asked for. Six daily auto-reports plus five always-on bots.</p>
+
+  <h4 class="mini-h">Daily Auto-Reports (no manual compilation)</h4>
+  <table>
+    <thead>
+      <tr><th>Report</th><th>Time</th><th>Source</th><th>Distribution</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Daily Production Report</strong></td><td>06:00</td><td>S/4 PP + plant MES (Yamuna FY27+)</td><td>WhatsApp + email PDF + Power BI app — CMD, CEO, Plant Heads. Line × shift × yield % × OEE × downtime cause</td></tr>
+      <tr><td><strong>Daily Dispatch Summary</strong></td><td>06:00</td><td>S/4 SD + WM</td><td>Logistics Head. By channel (GT/MT/E-com/QC/D2C/Salon/Exports), fill-rate %, overdue &gt;24-hr SLA, carrier-wise, critical pincode fails</td></tr>
+      <tr><td><strong>Daily Sales Flash</strong></td><td>09:00</td><td>S/4 SD + DMS secondary + Amazon Vendor Central API + Flipkart Seller API + QC seller portals + Shopify D2C</td><td>National Sales Head. Primary + Secondary + Online sell-out. Region × channel × top-20 SKU × YoY% × MTD vs target</td></tr>
+      <tr><td><strong>Inventory Exception Alerts</strong></td><td>real-time</td><td>S/4 MM + WM</td><td>Category Mgr + KAM. Stock-out by SKU × channel × DC; aging &gt;180-day; near-expiry (Baby &amp; Mom); critical vendor under-MOQ</td></tr>
+      <tr><td><strong>Weekly Channel P&amp;L</strong></td><td>Mon 08:00</td><td>S/4 CO-PA + DataWeave pricing + Azure Synapse cost-to-serve model</td><td>CFO + Channel Heads. True cost-to-serve waterfall — GMV → discounts → returns → 3PL → marketplace commission → marketing → contribution margin by channel</td></tr>
+      <tr><td><strong>Monthly Board Pack</strong></td><td>1st 09:00</td><td>All above + IBP forecast + DRHP-track KPIs</td><td>CMD + CEO + Board. 30-page auto-generated Power BI Paginated Report PDF. Includes RPT tracker, IPO milestone gantt, Yamuna ramp, Quality Excellence index</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="mini-h">The Five Always-On Bots</h4>
+  <table>
+    <thead>
+      <tr><th>Bot</th><th>Vendor</th><th>Function</th><th>Annual cost</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Forecasting</strong></td><td>o9 Solutions (Bengaluru-HQ; used by Godrej Consumer / Tata Consumer / Dabur / ITC)</td><td>13-week rolling SKU forecast; new-launch lift modelling (LitStyle, SmartOne patterns); seasonality (Karwachauth + Wedding + Rakhi cycles); Yamuna ramp scenarios</td><td class="num">₹3–5 cr</td></tr>
+      <tr><td><strong>Reorder</strong></td><td>Native S/4 MRP + Python on Azure Functions</td><td>Auto-PO trigger; SKU-level safety stock + ROP recalc weekly; vendor lead-time + MOQ aware</td><td class="num">₹0.5 cr</td></tr>
+      <tr><td><strong>Pricing Scrape</strong></td><td>DataWeave (used by Marico / Dabur / ITC / Britannia)</td><td>Daily Amazon / Flipkart / Blinkit / Zepto / Tira / Nykaa competitor pricing scrape; MOP/MAP violation alert; channel-conflict resolution feeder</td><td class="num">₹0.6–0.9 cr</td></tr>
+      <tr><td><strong>Sentiment</strong></td><td>Locobuzz Y1–2 → Sprinklr Y3+</td><td>Amazon + Flipkart + Nykaa review scrape + Instagram/YouTube/X social listening + NPS proxy. Feeds Quality Excellence dashboard. Directly addresses "motor stopped" / "feels cheap" / "black residue" recurring complaints.</td><td class="num">₹0.5–0.8 cr</td></tr>
+      <tr><td><strong>Anomaly Detection</strong></td><td>MindBridge AI + Azure Anomaly Detector</td><td>Margin/SKU/channel drift &gt;2σ; return-rate spike; expiry-window; channel cannibalisation; journal-entry anomaly + segregation-of-duties (audit-grade)</td><td class="num">₹0.4–0.8 cr</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Layer 03 — Consumer AI: "Vega HairPrint"</h3>
+  <p>Vega's analog of the skin-recommendation engine you saw in the O3+ Command Centre. A three-step diagnostic funnel that closes simultaneously across D2C (10–12× scale target), Salon B2B (white-space activation), and NPD briefing (climate-adaptive + Indian-texture-engineered product roadmap).</p>
+
+  <div class="box">
+    <div class="box-h">HairPrint · The 60-Second Diagnostic</div>
+    <p style="margin-bottom: 10px;"><strong>Step 1 — Your Hair</strong>: type (straight/wavy/curly/coily with photo guide) · texture (fine/medium/coarse) · length · density · porosity proxy.</p>
+    <p style="margin-bottom: 10px;"><strong>Step 2 — Your Reality</strong>: scalp condition · primary concern (frizz / heat-damage / breakage / thinning / dandruff / dryness / hard-water build-up) · age band · climate (humid coastal / dry Delhi-NCR / monsoon Bengaluru / cold Himalayan / Tier-2/3) · hard-water exposure (pincode-derived) · sensitivity flags.</p>
+    <p style="margin-bottom: 10px;"><strong>Step 3 — Your Routine</strong>: styling frequency · heat-tool comfort · time budget · goal · budget band · gifting context.</p>
+    <p style="margin-bottom: 0;"><strong>Output</strong>: 4-step regimen — Tool + Care + Style + Maintain — with specific Vega SKU recommendations, % match confidence, and "why this" reasoning grounded in ingredient/feature glossary. Below 70% match triggers "Talk to a Vega Stylist" WhatsApp handoff (Salon B2B lead capture).</p>
+  </div>
+
+  <p>Stack: Azure OpenAI GPT-4o-mini + Azure AI Search (RAG on 700-SKU spec library) + Custom Vision (Year 2 photo scalp scan). Build ₹1.2–2.0 cr + run ₹50–80 L/yr.<sup class="cite">7</sup></p>
+
+  <h3 class="sub-h">Layer 04 — Supply Chain Hub-and-Spoke</h3>
+  <p>Today: single Noida hub. South/East lead 5–7 days. QC SLAs structurally impossible. Yamuna deepens NCR concentration. <strong>Recommendation: 4-warehouse network</strong> (Noida + Bhiwandi + Hosur + Kolkata) — reject central (Nagpur/Indore) until FY30.</p>
+
+  <table>
+    <thead>
+      <tr><th>Zone</th><th>Site</th><th>Land cost</th><th>Labour</th><th>Serves</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>North</td><td>Noida (Sector 80 + Yamuna spoke FY27)</td><td>existing</td><td>existing</td><td>UP / Delhi / Punjab / Haryana / Rajasthan / HP / J&amp;K</td></tr>
+      <tr><td>West</td><td><strong>Bhiwandi (Mumbai)</strong></td><td class="num">₹22–28/sqft</td><td class="num">₹18–22K/mo</td><td>Mumbai 8h · Pune 12h · Surat/Ahmedabad 14h · JNPT-port import adjacency</td></tr>
+      <tr><td>South</td><td><strong>Hosur (Bangalore-edge)</strong></td><td class="num">₹18–22/sqft</td><td class="num">₹14–18K/mo</td><td>BLR 1h · Chennai 5h · Kochi 8h · Hyderabad 10h — KA + TN + AP + TG + Kerala</td></tr>
+      <tr><td>East</td><td><strong>Kolkata (Dankuni)</strong></td><td class="num">₹14–18/sqft</td><td class="num">₹12–15K/mo</td><td>WB · Odisha · Jharkhand · Bihar · Assam · NE-7 via NH-19 + NH-16</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>3PL stack</strong>: Mahindra Logistics + Stellar Value Chain (zonal CFAs) · Delhivery (E-com + QC + line-haul) · Shiprocket (D2C through FY28) · Locus (TMS overlay). Dual-source every zone. Capex ₹14–22 cr · annual opex ₹8–12 cr from FY27.<sup class="cite">8</sup></p>
+
+  <h4 class="mini-h">S&amp;OP Rhythm — Non-Negotiable</h4>
+  <table class="tight">
+    <thead>
+      <tr><th>Cadence</th><th>Chair</th><th>Duration</th><th>Decision rights</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Daily Exception</td><td>SCM Planner (rotating)</td><td>20 min stand-up</td><td>&lt;2-day cover A-class; QC OOS; ambassador-spike; line-stoppage</td></tr>
+      <tr><td>Weekly Tactical</td><td>COO</td><td>75 min Mon 09:30</td><td>PO release; expedites; intra-zone transfer; price-pack changes &lt;₹50L</td></tr>
+      <tr><td><strong>Monthly Executive</strong></td><td><strong>CEO (Sandeep Jain initially → professional CEO from T-30)</strong></td><td>3 hours, 3rd Tuesday</td><td>Capex &gt;₹50L · new SKU launch/kill · ambassador deals · vendor onboarding &gt;₹2cr/yr</td></tr>
+      <tr><td>Annual Strategy</td><td>CEO + Board observer</td><td>2-day offsite October</td><td>AOP lock · Yamuna ramp · channel-mix targets · capex sequence</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Layer 05 — Compliance Architecture</h3>
+  <p>Three parallel workstreams running under a single Pre-IPO Operations Excellence PMO. Total 36-month envelope <strong>₹38–55 cr</strong>.</p>
+
+  <table>
+    <thead>
+      <tr><th>Stream</th><th>Owner</th><th>Scope</th><th>36-mo cost</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Lean Excellence</strong></td><td>Partner: Kaizen Institute India / TPM Club India / KPMG Operations</td><td>5S + VSM → QCO + TPM → Kanban + MES (Tulip or L&amp;T-Nxt). OEE 55-60% Y1 → 75% Y3. DIO 95 → 70-75 days = ₹15-20 cr WC release. Poka-yoke for battery-pairing, motor torque, plate alignment.</td><td class="num">₹9.3–15.3 cr</td></tr>
+      <tr><td><strong>Quality Excellence</strong></td><td>New CQO (Director grade)</td><td>ISO 9001 + 14001 + 45001 + 27001 directly on Vega Industries (Rise has these; Vega Industries proper does NOT). AQL tiered by SKU class. Serial + batch traceability. 8D root-cause. <strong>DOA 2-4% → 0.5%; ★ trimmers 3.7-4.2 → 4.4+</strong> by IPO.</td><td class="num">₹2.5–3.5 cr</td></tr>
+      <tr><td><strong>Compliance Architecture</strong></td><td>New GC + DPO + Head Internal Audit</td><td>BIS R-number gap-close (IS 302 Part 2-23 + IS 16046/16047 + IS 13252). EPR registration + recycler partnership (Attero / E-Parisaraa / Karo Sambhav / Recykal). DPDP Act SDF-grade build (effective 13 May 2027). SEBI CSCRF outsourced-SOC (Microsoft Sentinel + Defender XDR). IFC Big-4-grade dossier per Sec 143(3)(i). Sec 138 Internal Audit (₹200 cr trigger crossed) — Protiviti co-source.</td><td class="num">₹26–36 cr</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-meta">Pillar 1 · Verdict</div>
+    SAP S/4 + AI-MIS + 4-warehouse + Lean/Quality/Compliance triple stream. <em>Total Pillar-1 36-month spend ₹145–223 cr.</em> This is the unsexy spend that buys the IPO multiple — and the only spend that lets you stop holding the company together personally.
+  </div>
+</section>
+
+<!-- ===== PILLAR 2: DIVERSIFICATION ===== -->
+<section id="goal-2">
+  <div class="eyebrow"><span class="eyebrow-num">04</span>Pillar 02 · Diversification Streams</div>
+  <h2 class="section-h">Where Vega goes <em>next.</em></h2>
+  <p class="section-sub">Thirty candidates were surfaced by six orthogonal hunters running in parallel — capability-adjacent, consumer-adjacent, channel-adjacent, trend-velocity, competitor-blind-spot, and contrarian. Each candidate was scored on right-to-win, time-to-revenue, competitor density, capital efficiency, and IPO-narrative fit. The eight TIER-0 bets below are the ones multiple hunters surfaced independently — that is the conviction signal.</p>
+
+  <h3 class="sub-h">The Eight TIER-0 Bets</h3>
+  <p>Multi-confirmed by 3+ orthogonal hunters. Fire Q1 FY27.</p>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">01</span>
+      <span class="bet-name">Salon B2B Tools — the chemistry-vs-tools wedge</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge confirmed">Multi-confirmed</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">TAM 2026</span><strong>₹2,554 cr</strong> · 8.6% CAGR</div>
+      <div><span class="bet-meta-l">Y3 Capture</span><strong>₹75–125 cr</strong></div>
+      <div><span class="bet-meta-l">Margin</span><strong>28–32% GM</strong></div>
+      <div><span class="bet-meta-l">Capex</span><strong>₹8–15 cr</strong></div>
+    </div>
+    <p class="bet-rationale">L'Oréal Professionnel, Schwarzkopf, Wella, Streax sell <em>chemistry only</em> — category-mandate from Paris/Düsseldorf forbids them from entering tools. Wahl India owns clippers narrowly and is shrinking (–66% networth). Havells/Philips have no salon channel. Vega Professional 150+ SKUs already exists. Bottleneck is organisational — hire Head Salon B2B (sourced from L'Oréal Pro / Schwarzkopf / Wella / Streax) at ₹1.5–1.8 cr + premium 0.25% ESOP. Co-branded kits with Lakme / Naturals / Jawed Habib / Green Trends / YLG. Stylist-as-affiliate program via GoAffPro converts 8,000 stylists by FY29 into individual retail nodes — bridging salon B2B into D2C consumer-acquisition.<sup class="cite">9</sup></p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">02</span>
+      <span class="bet-name">Indeutsch cosmetic-brush B2B PL consolidation</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge confirmed">IPO consolidator</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">Global TAM</span><strong>₹8,000–12,000 cr</strong></div>
+      <div><span class="bet-meta-l">Y3 Revenue</span><strong>₹40–100 cr</strong></div>
+      <div><span class="bet-meta-l">Time to Rev</span><strong>0 mo · already shipping</strong></div>
+      <div><span class="bet-meta-l">Capex</span><strong>&lt;₹1 cr</strong></div>
+    </div>
+    <p class="bet-rationale">Indeutsch is the world's largest private-label cosmetic + artist brush manufacturer, 100% EOU, CE / REACH / FDA bench. <strong>Carve the cosmetic-brush division into the listed Vega Industries perimeter pre-DRHP.</strong> Day-1 ₹40–80 cr export revenue + the CE/REACH/FDA pedigree the standalone Vega entity lacks. No competitor can replicate this — only Vega's group has Indeutsch.<sup class="cite">10</sup></p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">03</span>
+      <span class="bet-name">Carbon-fibre B2B via Bharat Composites + NitPro</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge contrarian">Multiple-uplift</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">India TAM</span><strong>~₹3,400 cr</strong> aerospace + ortho + drone CFRP</div>
+      <div><span class="bet-meta-l">Y3 Revenue</span><strong>₹40–90 cr</strong></div>
+      <div><span class="bet-meta-l">Margin</span><strong>40–50% aerospace · 30–35% drones</strong></div>
+      <div><span class="bet-meta-l">Capex</span><strong>&lt;₹2 cr</strong></div>
+    </div>
+    <p class="bet-rationale">The single biggest EV/Rev uplift lever on this entire deck. Bharat Composites + NitPro already ship carbon fibre at scale (German prepreg tech, 30,000 m/month pultrusion). If consolidated into the listed Vega Industries perimeter and disclosed in the DRHP as an "Industrial Composites" segment, the valuation conversation shifts from "personal-care appliance maker" (2.0–2.5× EV/Rev) to "engineered-materials + consumer-brand holding-co" (3.5×+) — <strong>adds 1–2 turns of EV/Revenue independent of growth</strong>. Pair with premium carbon-fibre handle SKUs for the Atelier line (Dyson-alternative women's premium) — same group-asset, two value tracks.<sup class="cite">11</sup></p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">04</span>
+      <span class="bet-name">Subscription consumables aftermarket</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge contrarian">Wave-1 missed</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">Installed Base</span><strong>~30–50M Vega units</strong></div>
+      <div><span class="bet-meta-l">Y3 ARR</span><strong>₹20–40 cr → ₹75 cr ceiling</strong></div>
+      <div><span class="bet-meta-l">GM</span><strong>45–65%</strong> razor-and-blade</div>
+      <div><span class="bet-meta-l">Capex</span><strong>₹0</strong></div>
+    </div>
+    <p class="bet-rationale">The single highest-IRR play in the deck. Vega has ~30–50M installed units across trimmers, dryers, brushes, baby bottles — and zero recurring revenue from any of them. Subscription consumables (foils, blades, USB-C cables, brush bristle refills, dryer filters, Baby &amp; Mom bottle teats, oral-care brush heads, salon-pro replenishment kits) on Recharge Payments via Shopify Plus. <strong>Only Vega can sell Vega-fit replacement parts — structural competitive moat.</strong> Hits three Wave-1 problems simultaneously: D2C 10–12× scale ramp, GM expansion 26% → 32%, and DRHP "recurring revenue" multiple-uplift narrative — without one rupee of new factory capex. Should be Vega's Q1 FY27 launch ahead of any new product line.<sup class="cite">12</sup></p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">05</span>
+      <span class="bet-name">Hard-water + humidity climate-adaptive hardware</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge contrarian">India-engineering moat</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">India TAM</span><strong>₹150–300 cr</strong> category-creating</div>
+      <div><span class="bet-meta-l">Y3 Revenue</span><strong>₹20–55 cr</strong></div>
+      <div><span class="bet-meta-l">GM</span><strong>42–55%</strong></div>
+      <div><span class="bet-meta-l">Capex</span><strong>₹2–4 cr</strong></div>
+    </div>
+    <p class="bet-rationale">76% of urban India lives on hard water &gt;300 ppm TDS (CGWB district reports). Mineral build-up is the unspoken #1 cause of dull/brittle hair complaints in Indian beauty consumer research. Global brands engineer for Western soft water (60–80 ppm). <em>Every existing tool under-performs in India and consumers blame their hair, not the tool.</em> Vega launches the chelating-bristle clarifying brush + clarifying-spray refill + humidity-rated ionic dryer with auto-frizz-sensing. <strong>Patent-defensible</strong> (file 3 utility + 4 design = 7 filings). Solves Wave-1's "8–15 patents pre-DRHP" gap with a single category. Cross-leverages Sery Cosmetics LLP for the spray component.<sup class="cite">13</sup></p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">06</span>
+      <span class="bet-name">KnitPro chassis monetisation — Vega-brand US/EU export</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge confirmed">Group-asset lever</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">Chassis Reach</span><strong>Michaels USA 1,300+ · Hobbycraft UK 95+ · 70+ countries</strong></div>
+      <div><span class="bet-meta-l">Y3 Revenue</span><strong>₹30–60 cr</strong></div>
+      <div><span class="bet-meta-l">Lead Time</span><strong>6–9 mo non-electronic · 12–18 mo appliances</strong></div>
+      <div><span class="bet-meta-l">Capex</span><strong>&lt;₹2 cr</strong></div>
+    </div>
+    <p class="bet-rationale">The most under-narrated asset Vega owns. KnitPro group already ships to Michaels (1,300+ US stores), Hobbycraft (95+ UK), Viridian Yarn wholesale, h+h Cologne trade show — 70+ countries. Plug Vega-brand combs, brushes, manicure sets, makeup brushes into existing KnitPro PO orders (CPSIA + REACH + FDA pedigree at Indeutsch covers it). Phase-1 non-electronic SKUs: 6–9 months to Michaels USA shelf. Phase-2 appliances (LitStyle + SmartOne) need FCC + CE + CB Scheme — 12–18 months. Co-branded "Vega × KnitPro · Crafted in India" first 18 months, then standalone Vega-brand.<sup class="cite">14</sup></p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">07</span>
+      <span class="bet-name">Premium women's ₹5–15K · "Vega Atelier" — the Dyson alternative</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge confirmed">GM expansion lever</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">Slot TAM</span><strong>₹800–1,200 cr</strong> India premium-dryer</div>
+      <div><span class="bet-meta-l">Y3 Revenue</span><strong>₹35–75 cr</strong></div>
+      <div><span class="bet-meta-l">GM</span><strong>42–48%</strong></div>
+      <div><span class="bet-meta-l">Capex</span><strong>₹5–10 cr</strong> high-RPM motor line</div>
+    </div>
+    <p class="bet-rationale">Dyson Supersonic at ₹30–35K is aspirational but inaccessible. Philips ₹3–5K. Havells ₹1–3K. Vega ceiling ₹2,500 (₹5,600 Pro-Shyne outlier). <strong>The ₹5,000–10,000 slot is structurally empty.</strong> Havells (Lloyd-premium brand-stretch awkward), Philips (cannibalises Lumea/Sonicare premium positioning), Lifelong/Agaro (no premium brand-permission), BSC (men-only), Mamaearth (chemistry not hardware), Dyson (won't go down-market) — all blocked. Vega Atelier launches with ionic + ceramic multi-styler + AI-temp dryer at ₹6,999–9,999. Bharat Composites carbon-fibre handle = material-IP block competitors can't replicate. Alia Bhatt as ambassador (₹5–8 cr/yr). Distribution: Tira / Nykaa Luxe / Sephora premium endcaps + D2C Atelier sub-domain.<sup class="cite">15</sup></p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">08</span>
+      <span class="bet-name">Electric oral care — sonic toothbrush + water flosser</span>
+      <span class="badge tier-0">Tier 0</span>
+      <span class="badge inferred">Platform-shift play</span>
+    </div>
+    <div class="bet-meta">
+      <div><span class="bet-meta-l">India TAM 2026</span><strong>₹2,800–3,800 cr</strong> · 17–25% CAGR</div>
+      <div><span class="bet-meta-l">Y3 Revenue</span><strong>₹40–65 cr</strong></div>
+      <div><span class="bet-meta-l">GM</span><strong>30–38%</strong> + razor-blade refill economics</div>
+      <div><span class="bet-meta-l">Capex</span><strong>₹2–5 cr</strong> sonic motor line (Y2)</div>
+    </div>
+    <p class="bet-rationale">You have already flagged this category as pipeline. Sonic motor (24–40K strokes/min) is the only capability gap — ₹2–5 cr capex unlocks. Indeutsch's brush-tufting bench shortcuts brush-head production. Mid-price ₹1,499–2,999 segment is open: Oral-B and Philips Sonicare own &gt;₹4,000; Caresmith and Perfora are sub-scale. <strong>Reframes Vega from "hair tools" to "personal-care platform" — Crompton-grade multiple shift.</strong> Replacement brush-head subscription compounds Bet 04. Launch Y2 (post sonic-motor capex), brand sub-shelf "Vega SmilePro".<sup class="cite">16</sup></p>
+  </div>
+
+  <h3 class="sub-h">The TIER-1 Bets (Q2–Q4 FY27 sequenced)</h3>
+  <p>Endorsed by 2+ axes; clear right-to-win; deploy after TIER-0 momentum is established.</p>
+
+  <table class="data">
+    <thead>
+      <tr><th>#</th><th>Bet</th><th class="num">India TAM</th><th class="num">Y3 Rev band</th><th>Hunter endorsements</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>09</td><td><strong>Pet grooming appliances</strong> (dryers, brushes, dental, trimmers)</td><td class="num">₹400–700 cr</td><td class="num">₹25–45 cr</td><td>Capability-A · Consumer-A · Channel-A · Trend-V · Blind-Spot · 5/5</td></tr>
+      <tr><td>10</td><td><strong>Bridal trousseau curated kits</strong> ₹5–20K</td><td class="num">₹920 cr addressable</td><td class="num">₹30–80 cr</td><td>Consumer-A · Channel-A · Blind-Spot · Zero capex</td></tr>
+      <tr><td>11</td><td><strong>Beauty-device suite</strong> (LED face mask + microcurrent + ice-globe)</td><td class="num">₹520–920 cr</td><td class="num">₹25–85 cr</td><td>Capability-A · Consumer-A · Trend-V · Channel-A · Post-SMT capex</td></tr>
+      <tr><td>12</td><td><strong>Indian-texture-engineered styler</strong> (coily/wavy/oil-bathed)</td><td class="num">₹300–500 cr</td><td class="num">₹20–55 cr</td><td>Consumer-A · Blind-Spot · IP-defensible</td></tr>
+      <tr><td>13</td><td><strong>Ayurveda × hardware</strong> (abhyanga roller, smart tongue scraper, oil-warmer)</td><td class="num">₹240–340 cr</td><td class="num">₹12–40 cr</td><td>Consumer-A · Trend-V · Blind-Spot · Contrarian</td></tr>
+      <tr><td>14</td><td><strong>Premium men's grooming hardware</strong> ₹4–10K (SmartOne X)</td><td class="num">₹420–800 cr</td><td class="num">₹25–50 cr</td><td>Capability-A · Consumer-A · Blind-Spot · Trend-V</td></tr>
+      <tr><td>15</td><td><strong>Salon furniture + consumables</strong> (chairs, trolleys, capes, sectioning clips)</td><td class="num">₹1,800–2,400 cr</td><td class="num">₹35–70 cr</td><td>Capability-A · Channel-A · 90% reuse</td></tr>
+      <tr><td>16</td><td><strong>Industrial brush B2B</strong> (Indeutsch carve-in, automotive + cleaning)</td><td class="num">₹1,200–1,700 cr</td><td class="num">₹15–25 cr Y1</td><td>Capability-A · Group-asset</td></tr>
+      <tr><td>17</td><td><strong>Vega Bharat / Tej · sub-₹500 trimmer via Rise Appliances OEM</strong></td><td class="num">₹600–1,000 cr</td><td class="num">₹25–50 cr</td><td>Contrarian · Channel-A · Blind-Spot · Reject Vega-masterbrand</td></tr>
+      <tr><td>18</td><td><strong>Hard-water shower filter</strong> (B2C extension of Bet 5)</td><td class="num">₹450 cr</td><td class="num">₹6–38 cr</td><td>Consumer-A · Cross-bundle with Bet 5</td></tr>
+      <tr><td>19</td><td><strong>Sleep tech</strong> (white-noise, smart pillow accessory)</td><td class="num">₹850–1,100 cr</td><td class="num">₹2–4 cr capex</td><td>Trend-V · 90% mfg leverage</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">The TIER-2 Bets — Pilot First, Scale on Signal</h3>
+  <p>Contrarian / dark-horse bets. Each pilot is ₹15–30 L. Decision to scale taken at month 6.</p>
+
+  <table class="data tight">
+    <thead>
+      <tr><th>#</th><th>Bet</th><th>Contrarian rationale</th><th class="num">Pilot ₹</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>20</td><td><strong>Vega Sahay</strong> — geriatric dignity-of-care hardware (60+ pop 138M → 319M by 2050)</td><td>NRI/metro 32-45 adult-child is the BUYER, not the user. Caregiver-gifting is a different funnel. Channel: Apollo Pharmacy + Tata 1mg + Antara partnership.</td><td class="num">15 L</td></tr>
+      <tr><td>21</td><td><strong>Stylist-as-micro-retailer</strong> — 4-6M Indian salon stylists as Vega QR-affiliate nodes</td><td>15% commission on consumer purchase via stylist code = ₹375 on ₹2,500 dryer = full day's tip income. Bypasses MT shelf wars + GT beat-coverage gap.</td><td class="num">25 L</td></tr>
+      <tr><td>22</td><td><strong>Ritual-occasion precision hardware</strong> (Karwachauth jewellery cleaner, mehendi pen, sindoor applicator)</td><td>Indian wedding economy $130B / 11M weddings/yr. Karwachauth Amazon search +85% YoY. Hardware vacuum — no incumbent.</td><td class="num">12 L</td></tr>
+      <tr><td>23</td><td><strong>Sikh / Muslim / Halal-certified grooming</strong> — pan-India 220M+ Muslim + 21M Sikh population</td><td>P&amp;G/HUL won't touch this — cross-community backlash paranoia. Halal cert (₹15-30L) = GCC export option-value via KnitPro chassis.</td><td class="num">20 L</td></tr>
+      <tr><td>24</td><td><strong>Embarrassing-hygiene category</strong> — earwax camera tip + electric lice comb + nasal vacuum</td><td>Bebird China $100M+ on earwax alone. India 250M school-going kids = lice market Mediker chemistry-only. LED + camera cost-curves now crossed. Sub-brand "Vega CleanCare".</td><td class="num">18 L</td></tr>
+      <tr><td>25</td><td><strong>Post-partum mother-confidence hardware</strong> (scalp red-light, scar-care, eye-mask)</td><td>25M Indian births/yr; "fourth trimester" hardware is fastest-growing global personal-care sub-segment (Frida Mom $200M+). India zero mainstream brand. REQUIRES Baby &amp; Mom quality remediation first.</td><td class="num">15 L</td></tr>
+      <tr><td>26</td><td><strong>KnitPro-chassis diaspora-engineered export</strong> — South-Asian + Black + Latina hair textures</td><td>Mielle Organics (Black-textured tools) acquired by P&amp;G for $400M+ 2023. South-Asian diaspora US 5.4M + UK 1.9M + Canada 1.9M. One product line, three market segments.</td><td class="num">20 L</td></tr>
+      <tr><td>27</td><td><strong>Quiet-luxury unbranded premium</strong> — matte-noir trimmer + straightener ₹4,999–7,999</td><td>30+ metro premium consumer explicitly avoids logo-display. Bose-over-JBL psychology. Sub-brand off Vega masthead. Bharat Composites carbon-fibre + walnut-dock industrial design.</td><td class="num">25 L</td></tr>
+      <tr><td>28</td><td><strong>Vega Renew · EPR-driven trade-in refurb</strong></td><td>E-Waste Rules 2022 mandate 60% → 80% take-back. Refurb at 60-70% of new = penetrates Bharat Tier 3/4 sub-₹500 Kemei zone Vega masterbrand can't enter. Compliance-as-revenue.</td><td class="num">25 L</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Explicit Rejects</h3>
+  <p>Bets rejected by 2+ axes — these will surface in board discussions; here is why each fails.</p>
+
+  <table>
+    <thead>
+      <tr><th>Rejected bet</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Athleisure</strong> (regular + professional)</td><td>Different consumer occasion, different SKU economics, different channels, zero brand permission. Vega owns "tools"; athleisure asks Vega to own "apparel". No SCM advantage, no margin advantage. <span class="badge reject">REJECTED</span></td></tr>
+      <tr><td><strong>White-goods extension</strong> (kettles, irons, blenders)</td><td>Channel fits but brand-equity collapses — Crompton / Bajaj Electricals / Havells own; Vega becomes 9th-rank brand. GM-dilutive to IPO narrative which needs GM expansion <em>upward</em>. <span class="badge reject">REJECTED</span></td></tr>
+      <tr><td><strong>Baby diapers + wipes</strong></td><td>Channel fits but compounds existing Baby &amp; Mom 3.0–4.0★ NPS landmine. Pampers / Mamy Poko / Huggies own with chemistry trust Vega doesn't have. Commodity 12–18% GM. <span class="badge reject">REJECTED</span></td></tr>
+      <tr><td><strong>Smart toilets / cold-plunge tubs</strong></td><td>Wrong factory format. Ceramic + plumbing or compressor + large-format — Jaquar/Kohler/Symphony territory. Capability axis violated. <span class="badge reject">REJECTED</span></td></tr>
+      <tr><td><strong>OTC hearing aids</strong></td><td>Audiology micro-electronics is a different skill stack. 9.4% CAGR sub-velocity. Omron/Dr Morepen own. <span class="badge reject">REJECTED</span></td></tr>
+      <tr><td><strong>Continuous Glucose Monitors (direct mfg)</strong></td><td>Biocompatible-adhesive + sensor IP impossible for Vega's bench. Only viable as licensed-distribution play (sub-scale). <span class="badge reject">REJECTED</span></td></tr>
+      <tr><td><strong>Smart-mirror IoT</strong></td><td>Display + Android + computer vision = software-company economics. SMT line ₹10-20 cr + 50-100-head skill gap. Capability ceiling. <span class="badge reject">REJECTED</span></td></tr>
+      <tr><td><strong>Sub-₹500 trimmer via Vega masterbrand</strong></td><td>Dilutes premium-band equity needed for FY29 multiple expansion. <strong>Route via Rise Appliances OEM / sub-brand only</strong> (see Bet 17).</td></tr>
+      <tr><td><strong>Cosmetics (colour makeup)</strong> direct</td><td>Sery Cosmetics LLP already exists at group level — cross-bundle partnership, not on-Vega-masthead launch. <span class="badge reject">REJECTED on Vega-masthead</span></td></tr>
+      <tr><td><strong>Hair-loss laser caps (standalone)</strong></td><td>Tiny TAM (₹90 cr) + CDSCO Class B regulatory gate + laser-diode capability gap. Defer to FY29+. <span class="badge reject">REJECTED Y1-3</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="mini-h">Combined Diversification Trajectory</h4>
+  <table>
+    <thead>
+      <tr><th>Tier</th><th>Bet count</th><th class="num">Y3 revenue band</th><th>Capital required</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>TIER-0</strong> · multi-confirmed · Q1 FY27 launch</td><td>8</td><td class="num">₹305–675 cr</td><td>₹22–48 cr capex + Pillar-1 stack</td></tr>
+      <tr><td>TIER-1 · 2-axis endorsed · Q2-Q4 FY27</td><td>11</td><td class="num">₹195–460 cr</td><td>₹15–35 cr capex</td></tr>
+      <tr><td>TIER-2 · pilot first · scale on signal</td><td>9</td><td class="num">₹120–280 cr (risk-adj)</td><td>₹1.75 cr pilot · ₹15-25 cr if all scale</td></tr>
+      <tr><td><strong>Aggregate Year-3 incremental (prob-weighted)</strong></td><td><strong>28 active bets</strong></td><td class="num"><strong>₹350–550 cr</strong></td><td><strong>₹40–80 cr</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-meta">Pillar 2 · The Asymmetric Read</div>
+    Of the eight TIER-0 bets, <em>four are group-asset consolidation plays</em> — Indeutsch carve-in, Carbon-fibre via Bharat+NitPro, KnitPro export chassis, Rise OEM Bharat sub-brand. None require new factories. <strong>Vega doesn't need to build to add ₹200–300 cr of FY29 revenue with IPO-grade narrative — it needs to redesign the listed-entity perimeter.</strong>
+  </div>
+</section>
+
+<!-- ===== PILLAR 3: IPO-READY ORG ===== -->
+<section id="goal-3">
+  <div class="eyebrow"><span class="eyebrow-num">05</span>Pillar 03 · IPO-Ready Organisation</div>
+  <h2 class="section-h">From founder to <em>institution.</em></h2>
+  <p class="section-sub">An IPO is not a financial event. It is an organisational event that has a financial date attached. Three years to listing means a 12-month window to lock the CEO + CFO + CS, then a 12-month window to complete the rest of the C-suite + Board + Independent Directors, then a 12-month window to operate the institution before the DRHP filing. The talent market for FMCG/CDIT CXOs in 2025-26 is unusually liquid — Karve (CFO available since Oct 2024), Nandi (Bajaj Consumer exited Jun 2025), Mathew Job (ex-Crompton). <strong>This window closes inside 12 months.</strong></p>
+
+  <h3 class="sub-h">Move A · Hire a Professional CEO by November 2026</h3>
+  <p>This is the single most consequential decision in the 36-month window. The CEO owns: full P&amp;L, all hiring below CMD, all process redesign, all KPIs, ERP rollout, IPO program oversight. Your role shifts to Executive Chairman — govern the board, own the strategic frame, own promoter-investor relationships, sponsor the IPO. Stop running operations.</p>
+
+  <h4 class="mini-h">CEO Candidate Pool · May 2026 Market State</h4>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Name</th><th>Current / last</th><th>Why fit</th><th class="num">Likelihood</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>01</td><td><strong>Jaideep Nandi</strong></td><td>Ex-MD Bajaj Consumer Care (exited Jun-30-2025); previously CEO Asian Paints PPG</td><td>25 yrs CPG; ran ₹900+ cr P&amp;L; FMCG personal-care fluent; available NOW (gardening leave); demands IPO-event trigger tranche</td><td class="num">HIGH</td></tr>
+      <tr><td>02</td><td><strong>Mathew Job</strong></td><td>Ex-MD&amp;CEO Crompton (exited 2023, ran ₹6,000+ cr P&amp;L)</td><td>Best-in-class CDIT operator; deep MT/GT; possibly available for next exec chapter; comp band ₹6-8 cr + 1-1.5% ESOP</td><td class="num">MEDIUM</td></tr>
+      <tr><td>03</td><td><strong>Saket Gore</strong></td><td>Ex-CEO Bajaj Electricals consumer; multiple CDIT operator roles</td><td>Direct CDIT P&amp;L; appliance-mix native; NCR-friendly; hungry — best-fit dark horse</td><td class="num">MED-HIGH</td></tr>
+      <tr><td>04</td><td>Ashish Goupal</td><td>CEO India Core, Marico (since Apr-2025)</td><td>Running ₹8,000 cr India business; would step out only for CEO-1 of listed entity</td><td class="num">MEDIUM</td></tr>
+      <tr><td>05</td><td>Sanjay Mishra</td><td>Ex-COO / Ex-CEO India, Marico (long tenure; senior alumni network)</td><td>Pure-play FMCG ops + brand</td><td class="num">MEDIUM</td></tr>
+      <tr><td>06</td><td>Shankar Prasad</td><td>Founder Plum Goodness (D2C beauty, Nykaa-acquired)</td><td>D2C-native; would solve Vega's D2C scale-gap as part of CEO mandate; demands paper-heavy 2-3% ESOP</td><td class="num">MED · CONTRARIAN</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box warn">
+    <div class="box-h">Rejected with reason</div>
+    <strong>Saugata Gupta (Marico CEO)</strong> — not movable; ₹36 cr comp out of band. <strong>Varun Berry (ex-Britannia)</strong> — overqualified; Board Chair candidate not CEO. <strong>Sunil Duggal (ex-Dabur)</strong> — overqualified; Board candidate, not CEO. <strong>Kumar Chander (incoming Wipro Consumer)</strong> — locked 3-5 yrs.
+  </div>
+
+  <p><strong>Search firm strategy</strong>: dual mandate — <strong>Egon Zehnder India</strong> (Pallavi Kathuria leads consumer practice; ran Crompton-Ghosh search 2023) for CEO and Board roles + <strong>Vito India / Native Executive Search</strong> for CFO/COO/CHRO/CTO at 30% lower fees. Aggregate search spend ₹8–15 cr.</p>
+
+  <h3 class="sub-h">Move B · Complete KMP Slate by July 2027 (T-22)</h3>
+
+  <table>
+    <thead>
+      <tr><th>Role</th><th>Target onboarding</th><th>Top-1 candidate</th><th class="num">Comp band</th><th class="num">ESOP</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>CFO</strong></td><td>T-30 · Nov 2026</td><td><strong>Vivek Karve</strong> · ex-CFO Marico (20-yr) → ex-CFO Mahindra Finance (exited Oct-2024, sabbatical) · <span class="badge confirmed">Available</span></td><td class="num">₹4–6 cr</td><td class="num">0.75–1.25%</td></tr>
+      <tr><td>Company Secretary</td><td>T-30 · Nov 2026</td><td>ACS/FCS 12–15 yr + prior IPO · source via MMJC/ICSI placement (not SHREK)</td><td class="num">₹50–90 L</td><td class="num">0.05–0.1%</td></tr>
+      <tr><td>Internal Auditor</td><td>T-28 · Jan 2027</td><td>In-house lead + co-sourced <strong>Protiviti</strong> + GT Bharat backup</td><td class="num">₹2.5–3.5 cr/yr engagement</td><td class="num">n/a</td></tr>
+      <tr><td>COO</td><td>T-26 · Mar 2027</td><td>SCM + manufacturing background; ex-Havells / Marico / Dabur ops; replaced Havells SVP-SCM tier</td><td class="num">₹3–4 cr</td><td class="num">0.4–0.6%</td></tr>
+      <tr><td>CHRO</td><td>T-24 · May 2027</td><td><strong>Rahul Gama</strong> · ex-CHRO Pidilite (resigned 2025) <span class="badge confirmed">Available</span></td><td class="num">₹2–3 cr</td><td class="num">0.3–0.5%</td></tr>
+      <tr><td>CTO / Head Digital</td><td>T-22 · Jul 2027</td><td>Ex-Mamaearth/Honasa tech + ex-boAt hardware; D2C-native + CDIT-native</td><td class="num">₹2–3 cr</td><td class="num">0.4–0.6%</td></tr>
+      <tr><td>General Counsel</td><td>T-22 · Jul 2027</td><td>Listed-company GC OR senior AZB/SAM partner; search via Vahura Legal</td><td class="num">₹1.75–2.5 cr</td><td class="num">0.3–0.4%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box alert">
+    <div class="box-h">Critical Path Risk</div>
+    If Karve + Nandi cannot be closed by T-30 (Nov 2026), the full DRHP T-12 (May 2028) target slips by 3–6 months → IPO May 2029 becomes Q3/Q4 2029. <strong>The CEO + CFO close in Q3-Q4 2026 is the single load-bearing milestone of the entire IPO programme.</strong>
+  </div>
+
+  <h3 class="sub-h">Move C · Build the BD Bench</h3>
+  <p>Six vertical heads under a new Chief BD Officer. Salon B2B head deliberately comped above larger-revenue heads — organisational bottleneck is the leverage point. Regional VPs East + South comped at parity to North to fix the structural north-heavy GT skew (35-40% North vs 14-18% East today).</p>
+
+  <table>
+    <thead>
+      <tr><th>Vertical</th><th>Comp ₹cr</th><th class="num">ESOP</th><th>Year-1 KPI</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>CCO / Chief BD Officer</strong> (NEW · Q4 FY26 imperative)</td><td>3.5–4.5</td><td class="num">0.50%</td><td>Total revenue ₹1,000 cr FY30; channel-mix lock</td></tr>
+      <tr><td>Head Modern Trade</td><td>1.8–2.2</td><td class="num">0.20%</td><td>Tira + Nykaa Luxe captaincy locked; shelf 8-12% → 14-16%; MT revenue ₹85 → ₹130 cr</td></tr>
+      <tr><td><strong>Head E-Commerce</strong> (highest comp)</td><td>2.0–2.5</td><td class="num">0.25%</td><td>Defend #1-2 SOS "hair brush"; crack top-5 SOS "trimmer"; ₹100 → ₹165 cr Y2</td></tr>
+      <tr><td>Head Quick Commerce</td><td>1.4–1.8</td><td class="num">0.20%</td><td>QC revenue sub-5% → 10-12%; ₹99-499 exclusive 20-SKU pack live; Blinkit category-captain "styling-tools"</td></tr>
+      <tr><td>Head General Trade</td><td>1.6–2.0</td><td class="num">0.15%</td><td>Direct beat 8-12K → 18-20K outlets; FF 120-180 → 280-340; East+South 32-40% → 42-48% share</td></tr>
+      <tr><td><strong>Head Salon B2B</strong> (premium ESOP — Tier-0)</td><td>1.5–1.8</td><td class="num">0.25%</td><td>Co-branded kits live w/ 3 chains (Lakme + Jawed Habib + Green Trends); 5K → 15K direct-managed salons; stylist-affiliate 2K onboarded; ₹0 → ₹25-35 cr Y1</td></tr>
+      <tr><td>Head D2C</td><td>1.6–2.0</td><td class="num">0.25%</td><td>D2C revenue ₹3-9 cr → ₹85-105 cr FY29; subscription consumables ARR ₹15-25 cr Y3; ROAS &gt; 2.5×</td></tr>
+      <tr><td>Head BD International</td><td>2.0–2.5</td><td class="num">0.30%</td><td>FY29 export ₹112-162 cr via GCC (Lulu/Panda anchor) + SEA + Africa + KnitPro chassis + OEM</td></tr>
+      <tr><td>RVP North / West / South / East</td><td>1.4–1.8 each</td><td class="num">0.08-0.10%</td><td>South: Hosur hub + YLG/Naturals/Green Trends HQ-cluster lock. East: Kolkata hub + Bangla/Odia regional SKU push. Rebalances structural skew.</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="mini-h">International Phasing</h4>
+  <table class="tight">
+    <thead>
+      <tr><th>Phase</th><th>Geo</th><th>Anchor distributor</th><th class="num">Y3 target</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Phase 1 · Y1 FY27</td><td>Middle East · UAE / Saudi / Oman / Kuwait / Bahrain / Qatar</td><td><strong>Lulu Group</strong> (1,000+ GCC stores, Indian-promoter Yusuff Ali) + <strong>Panda Retail</strong> (Saudi Savola Group, ~290 stores). Halal cert ₹15-25L/family, 4-6 mo.</td><td class="num">₹35–45 cr</td></tr>
+      <tr><td>Phase 2 · Y2 FY28</td><td>SEA · Thailand / Vietnam / Indonesia / Singapore / Philippines</td><td><strong>Watsons</strong> (Thailand 550+ / Vietnam 200+) + <strong>Guardian</strong>; marketplace Lazada / Shopee / Tokopedia. Singapore SPV "Vega International Pte Ltd".</td><td class="num">₹22–30 cr</td></tr>
+      <tr><td>Phase 3 · Y3 FY29</td><td>Africa · Nigeria / Kenya / South Africa / Ghana / Egypt</td><td><strong>Jumia</strong> (pan-African anchor) + <strong>Clicks + Dis-Chem</strong> (SA premium) + Shoprite Nigeria + Carrefour Kenya</td><td class="num">₹8–15 cr</td></tr>
+      <tr><td><strong>Cross-phase</strong></td><td>KnitPro chassis · USA / UK</td><td><strong>Michaels</strong> (1,300+ US stores) + <strong>Hobbycraft</strong> (95+ UK) — non-electronic SKUs 6-9 mo; appliances 12-18 mo</td><td class="num">₹25–40 cr</td></tr>
+      <tr><td colspan="3"><strong>Total FY29 export — all 5 levers firing</strong></td><td class="num"><strong>₹112–162 cr</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Move D · Product Development Team</h3>
+  <p>Hire <strong>Head of Product &amp; NPD by Q3 FY27</strong> — ₹2.5-4 cr + 0.5-1% ESOP. Source pool: ex-Crompton Personal Care / Bajaj Electricals (Morphy Richards) / Philips Personal Health Pune / Stove Kraft / Symphony / Mi India personal-care divestees.</p>
+
+  <p>NPD team: 12 heads / ₹5-7.5 cr/yr loaded. Bengaluru NPD satellite is non-negotiable (Noida lacks senior industrial-designer density). External panel: Lekha Design (Bengaluru, electronics) + Onio Design (Pune, premium appliance) + DesignProtocol (Bengaluru/Mumbai, beauty/D2C) + Lollypop (Bengaluru, digital UX for HairPrint). Cadence target: 10-15 SKU launches/yr today → <strong>24-36 SKUs/yr by FY28</strong>.</p>
+
+  <h3 class="sub-h">Move E · Board Recomposition</h3>
+  <p>9-member Board · 4 Executive/Promoter + 5 Independent Directors. All 5 IDs appointed by Q4 FY27 (Dec 2026).</p>
+
+  <table>
+    <thead>
+      <tr><th>Archetype</th><th>Top named candidates · May 2026</th><th class="num">Comp ₹L/yr</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Audit Committee Chair</strong> · ex-CFO listed FMCG</td><td>Vivek Karve (if not CFO) · Lalit Malik (ex-Dabur, now Vedanta) · Rajesh Sharma (ex-Emami)</td><td class="num">22</td></tr>
+      <tr><td>Lead ID · ex-CEO consumer brand</td><td>Saugata Gupta (post-Marico exit if/when) · Sunil Kataria (ex-GCPL) · Sandeep Kataria (ex-Bata)</td><td class="num">25</td></tr>
+      <tr><td>D2C founder-operator</td><td>Ghazal Alagh (Mamaearth/Honasa) · Vineeta Singh (SUGAR) · Anisha Patnaik (Pilgrim) · Suhasini Sampath (Yoga Bar/ITC)</td><td class="num">18</td></tr>
+      <tr><td>Legal / Governance · ex-GC listed</td><td>Berjis Desai (ex-J.Sagar) · ex-GC tier from HUL/Marico/Asian Paints/Pidilite</td><td class="num">18</td></tr>
+      <tr><td><strong>Independent Woman Director</strong> · Sec 149(1) mandate</td><td>Vibha Paul Rishi · Ireena Vittal · Roopa Kudva (ex-Omidyar India) · Apurva Purohit (ex-Jagran) · Kalpana Morparia · Zarin Daruwala · Sangita Reddy</td><td class="num">20</td></tr>
+    </tbody>
+  </table>
+
+  <p>Plus 5 LODR committees constituted: Audit, NRC, SRC, RMC, CSR. <strong>CSR Committee triggered NOW</strong> (Sec 135 — FY25 PAT ₹12 cr exceeds ₹5 cr threshold).</p>
+
+  <h3 class="sub-h">Move F · ESOP Architecture</h3>
+  <table class="tight">
+    <thead>
+      <tr><th>Parameter</th><th>Recommendation</th><th>Benchmark</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pool size</td><td><strong>8% of post-IPO fully-diluted cap</strong></td><td>Marico 3-4% · Crompton 4.5% · Honasa 10-12% · Vega threads needle</td></tr>
+      <tr><td>Vesting</td><td>4-yr graded · 1-yr cliff (25% Y1, then 25% annually)</td><td>Industry standard Indian listed CDIT</td></tr>
+      <tr><td>IPO-event trigger</td><td>Separate 25-50 bps tranche per CXO · vests 100% on listing-day (15-day cooling)</td><td>Mamaearth, Honasa, Cello, Stove Kraft pattern</td></tr>
+      <tr><td>Listing-day acceleration</td><td><strong>No automatic acceleration</strong> (preserves post-IPO retention)</td><td>Mamaearth + Nykaa pattern</td></tr>
+      <tr><td>Performance overlay</td><td>30-40% of CEO/CFO grants double-trigger on tenure + financials (FY28 EBITDA ≥ ₹82 cr; FY29 revenue ≥ ₹700 cr)</td><td>Crompton structure</td></tr>
+      <tr><td>Scheme structure</td><td>ESOP (options) for broad base · RSU overlay for senior 5 KMPs · trust-route via irrevocable EBT</td><td>Marico / Crompton / Havells trust-route precedent</td></tr>
+      <tr><td>Tax structure</td><td>Two-stage: perquisite at exercise · LTCG at sale · <em>DPIIT 48-mo deferral NOT applicable</em> (Vega is 30-yr mfg, not start-up)</td><td>Income-tax Act + recent ITAT</td></tr>
+      <tr><td>Total Black-Scholes envelope</td><td>₹30–45 cr · charge ₹7–15 cr/yr over 4-yr vesting</td><td>Acceptable EBITDA drag at FY27-30 scale ₹55-153 cr</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Move G · Pre-IPO PE Round (T-24 · May 2027 target close)</h3>
+  <p>₹250-350 cr primary at ₹1,800-2,200 cr post-money. Recommended syndicate:</p>
+
+  <table>
+    <thead>
+      <tr><th>Rank</th><th>Fund</th><th>Cheque · ₹cr</th><th>Strategic logic</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Lighthouse Funds</strong> · Sachin Bhartiya / Mukund Krishnaswami</td><td class="num">150–200</td><td><strong>HIGHEST conviction</strong> — Stove Kraft + Bikaji + Nykaa pre-IPO + Bira precedent; CDIT specialist; founder-friendly governance; identical scale-band reference</td></tr>
+      <tr><td>2</td><td><strong>Marico strategic</strong></td><td class="num">50–100</td><td>Beardo + Plix + Just Herbs acquisition template directly parallels Vega Men + LitStyle. <strong>Strategic-buyer anchor unlocks the ₹2,000-3,000 cr premium band</strong> — without it, valuation compresses to ₹1,300-1,600 cr DCF-grounded.</td></tr>
+      <tr><td>3</td><td><strong>Multiples</strong> · Renuka Ramnath</td><td class="num">30–50</td><td>Woman-led GP governance signal pre-IPO; Vastu Housing / Avanse / Lenskart pedigree; growth-stage comfort</td></tr>
+      <tr><td>4</td><td><em>Optional strategic 4th</em>: Reliance Retail Ventures</td><td class="num">50–100</td><td>Locks Reliance MT shelf + Tira/JioMart distribution + premium valuation arbitrage. Only if QC anchor materialises.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-meta">Pillar 3 · Verdict</div>
+    The hiring market is open right now and tightening fast. <em>Karve + Nandi are the two single-named hires that determine whether the May 2029 listing is possible.</em> Everything else is downstream of getting these two signed by Q3-Q4 2026. The financial case for the search-firm spend (₹8-15 cr) is trivial against the IPO-multiple consequence of delay.
+  </div>
+</section>
+
+<!-- ===== PILLAR 4: FUTURE PATH ===== -->
+<section id="goal-4">
+  <div class="eyebrow"><span class="eyebrow-num">06</span>Pillar 04 · Future Path &amp; Defense</div>
+  <h2 class="section-h">Defend the moat. <em>Beat the convergence.</em></h2>
+  <p class="section-sub">In a consolidating category, defending the moat is offence. Vega holds three strongholds and faces five named opponents (plus a dozen emerging threats). The blueprint maps each defense to a structural advantage the competitor cannot replicate — not to spend Vega does not have.</p>
+
+  <h3 class="sub-h">Defend · The Three Strongholds</h3>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">D1</span>
+      <span class="bet-name">Hair-brush / comb / accessories — #1 India share</span>
+    </div>
+    <p class="bet-rationale" style="margin-left: 0; margin-top: 8px;">
+      <strong>Threat</strong>: Amazon Solimo + Flipkart MarQ private labels; Reliance Retail PL emerging FY28; Lifelong/Agaro accessory extensions.<br>
+      <strong>Defense</strong>: (a) Category captaincy at Tira (Reliance Beauty greenfield — Vega's best captaincy window, no Philips lock) + Nykaa Luxe + Vijay Sales (Croma sub-category only — Philips entrenched); (b) File 50+ design registrations leveraging Indeutsch brush-IP bench (₹40-80 L over 24 months); (c) Premiumise wood/ceramic/ionic to ₹999-2,499 with three new SKUs — Vega Studio paddle, Vega Atelier ionic round, Vega Atelier Pro carbon-fibre tourmaline; (d) Convert Reliance Retail PL threat into Rise Appliances OEM contract (turn threat into ₹15-30 cr Rise revenue without diluting Vega masterbrand).<br>
+      <strong>Target</strong>: hold 100% share growth; lift accessory contribution from 12-15% → 25% of revenue by FY29.
+    </p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">D2</span>
+      <span class="bet-name">Hair-dryer #3 position · 10% share</span>
+    </div>
+    <p class="bet-rationale" style="margin-left: 0; margin-top: 8px;">
+      <strong>Threat</strong>: Agaro D2C ramp; Dyson halo pulling consumers above Vega ceiling; Lifelong sub-₹2K aggression; Philips premium creep.<br>
+      <strong>Defense — barbell strategy</strong>: (a) Own ₹500-1,500 via Yamuna MII cost engine (75% MII unlocks 3-4 pp GM expansion — Wave 1 GM lever); (b) Establish ₹6,999-9,999 Atelier line (TIER-0 Bet 07) — "Dyson alternative" capturing trade-down aspirant Dyson won't go down-market for; (c) Patent-defensible Climate-Sense thermistor + humidity-sensor for mid-tier ₹2K-3.5K differentiation; (d) Bharat sub-brand via Rise for any sub-₹500 dryer SKU.<br>
+      <strong>Target</strong>: defend 10% FY26-27; contest Havells 15% by FY29.
+    </p>
+  </div>
+
+  <div class="bet">
+    <div class="bet-head">
+      <span class="bet-rank">D3</span>
+      <span class="bet-name">Mass-premium ₹500-2,500 trimmer ladder</span>
+    </div>
+    <p class="bet-rationale" style="margin-left: 0; margin-top: 8px;">
+      <strong>Threat</strong>: Kemei sub-₹500 from below (no Indian legal entity → BIS/customs vulnerable); Lifelong/BSC/Beardo mid; Philips/Havells dropping prices from above.<br>
+      <strong>Defense</strong>: (a) SmartOne X premiumisation ₹2,499-4,999 (30-40% under Philips OneBlade Pro at feature parity); (b) <strong>3-year extended warranty</strong> (vs current 6-mo) — but only after Quality Excellence stream stabilises trimmer ★ ratings 3.7-4.2 → 4.4+; (c) Service network 200 cities (₹2-3 cr capex; the trust signal is the moat); (d) File customs informer complaint on BIS-non-compliant Kemei imports to displace ₹300-499 share.<br>
+      <strong>Target</strong>: lift trimmer SOS from outside-top-5 → top-5 Amazon/Flipkart by FY27; ASP +15-20% over 3 years.
+    </p>
+  </div>
+
+  <h3 class="sub-h">Beat · Counter-Play per Named Threat</h3>
+
+  <table>
+    <thead>
+      <tr><th>Threat · FY25 revenue</th><th>Structural weakness</th><th>Vega counter-play</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Bombay Shaving Co.</strong><br>₹271 cr · IPO 18-24 mo</td>
+        <td>Marketing-led shave brand; hardware-light (OEM-sourced); men-only; Rahul Dravid is <em>investor not ambassador</em></td>
+        <td>Position Vega as "<strong>hardware-grade grooming brand</strong>" vs BSC's "marketing-led shave brand". Hire ex-BSC D2C talent (2-3 operators) for Vega D2C lab. Race DRHP filing — file first or co-file same SEBI window. Women's grooming expansion locks BSC out.</td>
+      </tr>
+      <tr>
+        <td><strong>Agaro / UCL group</strong><br>₹1,910 cr · D2C-velocity multi-brand</td>
+        <td>No GT/MT depth; no salon channel; no Rohit Sharma / Ananya Panday-tier ambassador equity</td>
+        <td>Bundle Vega Professional with Lakme / Naturals / Jawed Habib / Green Trends / YLG salon chains (Agaro has zero salon distribution). Sery Cosmetics cross-bundle. Out-spend Agaro on Amazon Sponsored top-20 keywords (₹8-12 cr/yr).</td>
+      </tr>
+      <tr>
+        <td><strong>Lifelong Online</strong><br>₹540 cr · Amazon-dominant</td>
+        <td>No offline scale; no ambassadors; no premium positioning; no salon channel; no design IP</td>
+        <td>Amazon SOS share offence top-20 keywords (DataWeave-driven). Review-velocity engine: Vine + sampling + 50-100 micro-influencer seedings per launch. Accelerate launch cadence 10-15 → 24-36/yr. Brand-ambassador halo Lifelong cannot match.</td>
+      </tr>
+      <tr>
+        <td><strong>Havells India</strong><br>₹21,778 cr · 77× Vega</td>
+        <td>Brand-stretch awkward to ₹5-15K women's premium (Lloyd-aligned premium-electricals); no salon channel; board cap-allocation rejects small-category bets</td>
+        <td><strong>Don't compete head-on in appliances.</strong> Havells will defend ₹1.5-3K dryer/trimmer with promotional spend Vega cannot match. Cede some volume share. Carve salon white space (TIER-0 Bet 01) + premium women's Dyson-alt slot (TIER-0 Bet 07) + carbon-fibre handle exclusive (TIER-0 Bet 03).</td>
+      </tr>
+      <tr>
+        <td><strong>Philips Personal Health + Versuni</strong><br>~Philips India ₹6,000 cr · 20% hair-dryer share</td>
+        <td>Amsterdam global pricing-floor blocks sub-₹699 trimmer; clashes with Lumea/Sonicare premium positioning blocks India-specific Dyson-alt; global R&amp;D Drachten/Klagenfurt designs for Caucasian/East-Asian hair (no Indian-texture engineering)</td>
+        <td>(a) Capture sub-₹1,500 share Philips abandons as it premiumises (Yamuna MII cost engine + Bharat sub-brand); (b) Attack ₹2,500-5,000 mid via SmartOne X + LitStyle Premium; (c) Indian-texture-engineered styler (TIER-1 Bet 12 — Philips can't engineer for coily); (d) Made-in-India + Class-I local-supplier qualification under PPP-MII Order 2017 (Philips Baddi is imported-then-assembled).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Emerging Threats You May Not See</h3>
+  <table class="tight">
+    <thead>
+      <tr><th>Threat</th><th class="num">Probability FY26-29</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Reliance Retail Ventures private-label appliances</strong></td><td class="num">HIGH 50-60%</td><td><strong>Convert via Rise Appliances OEM-contract</strong> — turn threat into ₹15-30 cr Rise revenue without diluting Vega masterbrand. <em>Critical move.</em></td></tr>
+      <tr><td>Conair India direct entry</td><td class="num">MED 30-40%</td><td>Renew Conair OEM contract with exclusivity clause blocking Conair-brand India launch 36 months</td></tr>
+      <tr><td>Nykaa private-label hardware</td><td class="num">MED 30-40%</td><td>Negotiate exclusive Vega Atelier on Nykaa Luxe before Nykaa PL scales</td></tr>
+      <tr><td>Quick-commerce house-brands (Blinkit/Zepto PL)</td><td class="num">MED-HIGH 40-50%</td><td>Convert via Rise OEM-contract (mirror Reliance play)</td></tr>
+      <tr><td>Braun (P&amp;G) India personal-care push</td><td class="num">MED 25-35%</td><td>Pre-empt via Croma + Reliance Digital category-captaincy lock-in</td></tr>
+      <tr><td>Foreo / Therabody / Hyperice India direct entry</td><td class="num">MED 30-40%</td><td>Pre-empt via TIER-1 Bet 11 (Beauty-device suite) launch by H2 FY27</td></tr>
+      <tr><td>Marico move into appliances</td><td class="num">LOW-MED 15-25%</td><td>Cultivate Saugata Gupta / Pawan Agrawal relationship — position Vega as Marico's hardware-arm acquisition target (Pillar 3 pre-IPO PE anchor)</td></tr>
+      <tr><td>Dyson down-market diffusion line</td><td class="num">LOW-MED 15-25%</td><td>Monitor patent filings via IPIndia; lobby Reliance/Croma for early signal</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">M&amp;A Landscape — Vega as Acquirer (post-IPO)</h3>
+  <p>Pre-IPO M&amp;A discipline: <strong>no external deals 6-12 months before DRHP</strong>. Consolidate group entities only (Rise + Vega Pvt Ltd 1994 + Sery + Indeutsch brush carve-in). External M&amp;A from listed-equity currency post-listing.</p>
+
+  <table class="tight">
+    <thead>
+      <tr><th>Target</th><th class="num">Ticket</th><th>Logic</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Wahl India Pvt Ltd</strong></td><td class="num">₹15–25 cr</td><td>Salon clipper distribution chassis (3,000-5,000 salons); brand-permission in pro-clipper; networth -66% = stress target. Post-IPO acquisition cleanest.</td></tr>
+      <tr><td>Mi India personal-care divest assets</td><td class="num">₹5–15 cr</td><td>Tooling + SKU IP + Amazon-listing histories (assets only, no brand)</td></tr>
+      <tr><td>Small D2C beauty hardware roll-ups</td><td class="num">₹2–15 cr ea.</td><td>Inalsa personal-care line / IGIA legacy / Sara India legacy salon / Ozomax — opportunistic ₹20-40 cr aggregate roll-up by FY29</td></tr>
+      <tr><td>Perfora (oral care) · Caresmith (multi-cat)</td><td class="num">₹60–150 cr ea.</td><td>Only if PE-exit forced at value-correct levels post-2028 down-round</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Vega as Acquisition Target — Strategic Buyer Interest</h3>
+  <p>Even without a deal, the <em>option</em> of strategic exit lifts the PE round valuation by 20-30%. Cultivate these relationships from FY27.</p>
+
+  <table class="tight">
+    <thead>
+      <tr><th>Buyer</th><th class="num">Prob of bid</th><th class="num">Premium</th><th>Logic</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Marico</strong></td><td class="num">HIGH 35-45%</td><td class="num">30-50%</td><td>Beardo + Plix + Just Herbs need hardware-arm; ₹10,000+ cr FY25 can absorb Vega; Saugata Gupta acquire-and-scale playbook. <strong>Most credible anchor.</strong></td></tr>
+      <tr><td>Emami</td><td class="num">MED 20-30%</td><td class="num">15-30%</td><td>Kesh King + Navratna + BoroPlus adjacency; M&amp;A muscle weaker than Marico</td></tr>
+      <tr><td>Reliance Retail Ventures</td><td class="num">MED 20-30%</td><td class="num">20-40%</td><td>Captive-PL + portfolio play; but Reliance prefers build-not-buy</td></tr>
+      <tr><td>HUL / Unilever · P&amp;G India · Beiersdorf</td><td class="num">LOW 5-10%</td><td class="num">30-50% IF bid</td><td>Global FMCG mandate skips hardware; Lakme adjacency strong (HUL) but unlikely</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">IP Defensive Moat</h3>
+  <p>Target <strong>8-15 utility patents + 30+ designs pre-DRHP</strong>. Budget ₹1.5-2.5 cr/yr × 3 yrs. Attorney panel split: K&amp;S Partners primary (60%) + L&amp;S international (25%) + Anand and Anand (15%).</p>
+
+  <p>Priority filings ranked by defensibility + Vega-capability fit:</p>
+  <ol>
+    <li><strong>Hard-water chelating-bristle geometry + clarifying-spray dispense</strong> (3 utility + 4 design = 7 filings) — patent-defensible India-engineering moat, NEAR-ZERO prior art</li>
+    <li><strong>Carbon-fibre handle integration</strong> (3 utility + 2 design) — Bharat Composites + NitPro group-exclusive material-IP block</li>
+    <li><strong>Indian-texture styling-plate thermal profile</strong> (2 utility + 2 design) — Philips/Dyson cannot engineer for coily</li>
+    <li><strong>Heated abhyanga roller + smart tongue-scraper</strong> (2 utility + 2 design) — Ayurveda × hardware first-mover</li>
+    <li><strong>Anti-frizz airflow channel geometry</strong> (humid-summer dryer)</li>
+    <li><strong>Trimmer-comb anti-jam geometry</strong> (1 utility + 1 design) — addresses Wave-1 sentiment landmine</li>
+    <li><strong>Battery-pairing verification jig</strong> (process patent, anti-counterfeit) — defensive against subscription consumables knock-offs</li>
+  </ol>
+
+  <p>30+ designs registered in Class 28-03 (cosmetic + toilet articles, hand tools) + Class 09-01 (packaging) + Class 28-02 (hairdressing equipment) + Class 11-01 (Atelier premium ID) + Class 24-01 (Vega Sahay geriatric medical).</p>
+
+  <p>International defensive trademark filings (Madrid Protocol) — Phase-1 GCC (UAE/Saudi/Oman/Kuwait/Bahrain/Qatar) + Phase-2 SEA + Phase-3 Africa + Phase-4 KnitPro markets (USA/UK/Germany/Canada/Australia) — Classes 3+8+11+21 — total ₹80-125 L over 3 years.</p>
+
+  <div class="callout">
+    <div class="callout-meta">Pillar 4 · The Asymmetric Read</div>
+    Vega cannot out-spend Havells or out-Amazon Lifelong. <em>It can out-position both</em> by carving structurally unreachable white-spaces — salon B2B (chemistry brands locked out by Paris/Düsseldorf mandate), premium ₹5-15K women's (Havells brand-stretch + Philips cannibalisation + Dyson down-market refusal), Indian-texture engineering (global R&amp;D can't deliver), hard-water solutions (Western brands don't have the problem). The competitive map is a defensive map for Vega and an offensive map for everyone else — a structural inversion to exploit.
+  </div>
+</section>
+
+<!-- ===== PILLAR 5: VELOCITY + CLARITY ===== -->
+<section id="goal-5">
+  <div class="eyebrow"><span class="eyebrow-num">07</span>Pillar 05 · Velocity &amp; Clarity</div>
+  <h2 class="section-h">From mute trade-push <em>to loud platform-voice.</em></h2>
+  <p class="section-sub">Slow growth is a symptom of unclear identity. A brand with clarity grows ahead of its category; a brand without clarity grows behind it. The work below is identity work — and identity work, done well, compounds. Five doctrine shifts, executed across brand architecture + community + CMD voice + flagship plays.</p>
+
+  <h3 class="sub-h">The Five Doctrine Shifts</h3>
+
+  <table>
+    <thead>
+      <tr><th>From</th><th>To</th><th>Mechanism</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Founder-led</td><td><strong>Doctrine-led</strong></td><td>Write the Vega Doctrine — 1-page document every employee can recite. Mission · North Star metric · 5C operating system · RACI · Cadence. You sign; CEO executes. Every QBR benchmarked against Doctrine.</td></tr>
+      <tr><td>Grooming brush</td><td><strong>Beauty-tools platform</strong></td><td>Reframe identity: "Vega is India's beauty-tools platform — the company that arms the consumer, the stylist, and the professional with the hardware of beauty." 7-shelf master-brand house: Vega (core) · Vega Men · Vega Professional · LitStyle · <strong>Vega Atelier</strong> (new premium) · Baby &amp; Mom (paused/remediate) · <strong>Vega SmilePro</strong> (Y2 oral care).</td></tr>
+      <tr><td>Trade-push</td><td><strong>Consumer-pull</strong></td><td>Channel mix: 65% offline / 30-35% online / D2C minimal today → <strong>50% offline / 35% online / 12% D2C / 3% exports by FY29</strong>. Subscription consumables (TIER-0 Bet 4) is the recurring-revenue engine.</td></tr>
+      <tr><td>Mass</td><td><strong>Mass-premium</strong></td><td>Lift portfolio ASP 20-30% over 3 years. Premium share (SKUs &gt;₹1,500): 15-20% today → 35% by FY29. GM 26% → 32%. EBITDA margin 9.5% → 16%.</td></tr>
+      <tr><td>Mute</td><td><strong>Loud · Trendsetter</strong></td><td>Build the Vega Beauty Lab (Noida, May 2028). Publish the Vega Bharat Beauty Index (annual, Kantar + IIM-A co-published). Host the Vega Stylist Awards (May 2028). Run the Vega Founders Fund (₹75 cr corpus). Become the reference voice for the category.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Brand Architecture · 7-Shelf Master Brand House</h3>
+  <p>Architectural model: <strong>Branded House with Endorsed Sub-brands</strong> (NOT House of Brands — Vega masterbrand carries the trust moat; combs/brushes 4.5★ + 4,000+ Amazon reviews).</p>
+
+  <table class="tight">
+    <thead>
+      <tr><th>Shelf</th><th>Scope</th><th>Price</th><th>Ambassador</th><th>Master logo</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Vega</strong> (core)</td><td>Combs, brushes, entry tools, accessories</td><td>₹99–1.5K</td><td>—</td><td>100%</td></tr>
+      <tr><td>Vega Men</td><td>SmartOne trimmers, male grooming</td><td>₹1–3K</td><td>Rohit Sharma</td><td>70/30</td></tr>
+      <tr><td>Vega Professional</td><td>Salon B2B Pro-Shyne + tools (TIER-0 Bet 01)</td><td>₹2–15K</td><td>Jawed Habib (franchise + ambassador)</td><td>60/40</td></tr>
+      <tr><td>Vega LitStyle</td><td>Women's styling</td><td>₹1.5–5K</td><td>Ananya Panday</td><td>50/50</td></tr>
+      <tr><td><strong>Vega Atelier</strong> (NEW)</td><td>Premium ₹5-15K Dyson-alt (TIER-0 Bet 07)</td><td>₹5–15K</td><td>Alia Bhatt</td><td>30/70</td></tr>
+      <tr><td>Vega Baby &amp; Mom</td><td><em>PAUSE expansion · remediate 3.0-4.0★ quality first</em></td><td>₹299–2K</td><td>—</td><td>80/20</td></tr>
+      <tr><td><strong>Vega SmilePro</strong> (NEW · Y2)</td><td>Sonic oral care (TIER-0 Bet 08, post sonic-motor capex)</td><td>₹2–8K</td><td>—</td><td>60/40</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Off-masthead group-bridge sub-brands</strong>: <em>Sery</em> (D2C cosmetics LLP, cross-bundle only) · <em>Vega Sahay</em> (geriatric, off-masthead for category-safe entry) · <em>Vega Renew</em> (refurb) · <em>"Tej"</em> (Rise OEM Tier-3/4 sub-₹500 — zero Vega branding).</p>
+
+  <h4 class="mini-h">Visual Identity Refresh</h4>
+  <ul>
+    <li><strong>Tagline</strong>: "Tools of Indian Beauty" (consumer) · "Engineered in India. For India." (B2B / DRHP) · "The Hardware of Beauty" (international Phase-3). <em>Retire</em> "Your Partner in Styling, Grooming and Care".</li>
+    <li><strong>Type stack</strong>: Spectral or Tiempos Headline (display) + Söhne (body) + Devanagari/Dravidian script family for regional</li>
+    <li><strong>Color</strong>: kills generic red+white. Vega Core ivory + ink + heritage Vega Red desaturated (preserves combs/brushes equity); Vega Men carbon + steel + cobalt; Vega Professional deep charcoal + bone + antique brass; LitStyle cream + mauve + soft gold; <strong>Atelier matte black + ivory + champagne</strong></li>
+    <li><strong>Photography</strong>: editorial &gt; commercial; Indian skin tones + textures (straight + wavy + 3A coily + 4A kinky in every campaign)</li>
+    <li><strong>Total brand-identity overhaul</strong>: ₹14-23 cr / 36 mo (2-3% cumulative revenue · 0.5-1.0 turn EV/Rev lever = ₹350-700 cr enterprise-value uplift on FY29 base)</li>
+  </ul>
+
+  <h3 class="sub-h">CMD Voice · "Quiet Builder + Category Conscience"</h3>
+  <p>The institutional book — DIIs, FIIs, Marico/Emami/RRVL strategic — rewards Harsh Mariwala gravitas, not Shark Tank theatre. The "Honasa hangover" (40%+ post-listing compression on founder-personality-as-floor risk) is the cautionary tale. Mamaearth's Ghazal Alagh archetype is over-indexed; do not replicate.</p>
+
+  <table class="tight">
+    <thead>
+      <tr><th>Channel</th><th>Cadence</th><th>Anchor reference</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>LinkedIn (CMD personal)</td><td>2-3 posts/week + 4-5/week from Vega company handle + 1 long-form essay/month</td><td>Harsh Mariwala (Marico) cadence + Sahil Lavingia (Gumroad) craft+transparency</td></tr>
+      <tr><td>Op-eds</td><td>2-3 per quarter (24-36 placements over 36 months)</td><td>Tier-1 ET, Mint, BS, Forbes India, Fortune India · 6 anchor themes rotating</td></tr>
+      <tr><td>Podcast circuit</td><td>1 appearance per quarter (12 over 36 months)</td><td>Founder Thesis · Mint Founders · The Outlier · Capital Project · Figuring Out · The Indian Dream · <strong>REJECT</strong> Beer Biceps / Shark Tank / AdAge Cannes France (wrong audience, dilutes archetype)</td></tr>
+      <tr><td>Keynote circuit</td><td>4-6 per year (12-18 over 36 months)</td><td>Vogue India Beauty Forum · CII Consumer Goods Summit · FICCI MASSMERIZE · TiE Global · ABBY Goafest · Cannes Lions India Knowledge Sessions</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>PR firm hybrid model</strong> (contrarian to default-Edelman): <strong>Adfactors PR</strong> primary (₹1-2 cr Y1-Y2 → ₹2-3 cr Y3) + Concept PR / The PRactice for ESG overlay + <strong>Edelman India IPO comms parachuted for T-12 to T-0 window only</strong> (₹2-4 cr engagement). Edelman as primary Y1-2 is capital-misallocation signal pre-IPO.</p>
+
+  <p><strong>Awards strategy</strong>: Effies India Bronze Y1 → Silver Y2 → <strong>Gold Y3 (pre-IPO)</strong>; Cannes Lions India Bronze Y3 (Mamaearth 2024 Gold; BSC 2023 Bronze precedents); <strong>EY Entrepreneur of the Year India</strong> apply Y2 → win Y3 (Falguni Nayar 2019 EY-EOY → IPO 2021 template).</p>
+
+  <p><strong>Voice-attributable valuation impact</strong>: 0.3-0.6 turns EV/Rev = ₹200-450 cr of the ₹2,000-3,000 cr pre-IPO valuation band is comms-attributable, particularly the "second-generation institutionalisation" + "category-conscience" premium.</p>
+
+  <h3 class="sub-h">Four Flagship Plays — The Trendsetter Compounds</h3>
+
+  <table>
+    <thead>
+      <tr><th>Flagship</th><th>DRHP narrative job</th><th>Y1 launch</th><th class="num">36-mo cost</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Vega Beauty Lab</strong> · Noida (Y1) + Mumbai satellite (Y3, gated)</td>
+        <td>"We have R&amp;D depth" — neutralises Wave-1 R&amp;D &lt;2% gap</td>
+        <td>May 2028 paired with Stylist Awards launch week (double-press cycle)</td>
+        <td class="num">₹19.4–24.5 cr Noida</td>
+      </tr>
+      <tr>
+        <td><strong>Vega Bharat Beauty Index</strong> · Kantar India (primary) + IIM-A CCRC (academic stamp) co-published</td>
+        <td>"We are the category" — owns the data layer</td>
+        <td>May 2027 · launch at Mumbai LFW Day-1 morning · 30 cities × 18,000 respondents × 5 ICP cohorts × 12 chapters</td>
+        <td class="num">₹4–5.2 cr</td>
+      </tr>
+      <tr>
+        <td><strong>Vega Stylist Awards</strong> · 7 categories · 8 industry-icon jurors</td>
+        <td>"We own the Salon B2B white space" — operationalises TIER-0 Bet 01</td>
+        <td>May 2028 · JW Marriott Mumbai Sahar · 600 attendees · livestream JioCinema. Co-sponsors Lakme + Schwarzkopf + Streax + JioCinema offset 35-45% gross cost — defines Vega as tools layer of salon stack which chemistry cos cannot oppose</td>
+        <td class="num">₹5–7.5 cr (2 editions)</td>
+      </tr>
+      <tr>
+        <td><strong>Vega Founders Fund</strong> · Vega Ventures LLP (off listed perimeter) · ₹75 cr cumulative corpus</td>
+        <td>"We are a platform, not a SKU house" — multiple-uplift expander · <strong>HIGHEST single EV/Rev lever (+0.5-1.0 turn)</strong></td>
+        <td>IC: CMD Chair + CEO + Riddima Jain + Fireside Ventures (Kanwaljit Singh, Mamaearth/boAt DNA) as outside governance partner. Cheque ₹2-4 cr/deal × 10-12 deals over 36 mo across 4 rigid buckets</td>
+        <td class="num">₹83.7 cr corpus + opex</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 class="mini-h">Beauty Lab Noida · 16,000 sqft · 7 zones</h4>
+  <ol>
+    <li><strong>Heritage Wall</strong> — KnitPro 1980s + Indeutsch EOU 30-year manufacturing pedigree</li>
+    <li><strong>NPD Studio</strong> (glass-fronted, public-viewable) — solves Wave-1 R&amp;D &lt;2% finding visually</li>
+    <li><strong>Indian-Texture Lab</strong> — coily/wavy/oil-bathed engineering · TIER-1 Bet 12 anchor</li>
+    <li><strong>Hair Atlas of India</strong> — interactive map of Kerala oil rituals · Tamil flower-styling · Sikh kanga · Bengali Sunday-oil · Punjabi wedding hardware · cultural-permission asset for community-specific SKUs</li>
+    <li><strong>Salon Pro Workshop</strong> — masterclass venue for Vega Pro Stylist Club</li>
+    <li><strong>Climate-Adaptive Showroom</strong> — hard-water demo · humidity-test chamber · monsoon-scalp simulation · TIER-0 Bet 05 storytelling</li>
+    <li><strong>Vega Atelier Preview</strong> — premium ₹5-15K SKUs in editorial setting</li>
+  </ol>
+
+  <h4 class="mini-h">Vega Stylist Awards · 7 Categories</h4>
+  <p>Bridal Stylist of Year · Master Stylist (15+ yr career) · Best Salon Large-Format · Best Salon Independent (&lt;10 chairs) · Newcomer Stylist (&lt;3 yr) · Editorial Stylist (fashion-week/magazine) · Stylist Creator (social). 8-juror panel: Jawed Habib + Cory Walia + Asha Hariharan + Florian Hurel + Yianni Tsapatori + Bianca Louzado + Dilshad Pastakia + Karuna Mansukhani. Trophy: Bharat Composites carbon-fibre statuette (group-asset cross-leverage).</p>
+
+  <h4 class="mini-h">Founders Fund · 4 Rigid Buckets</h4>
+  <table class="tight">
+    <thead>
+      <tr><th>Bucket</th><th class="num">Cheques</th><th>Logic</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Hardware-adjacent</strong> (oral-care, beauty-device, pet-grooming, sleep-tech D2C)</td><td class="num">4</td><td>Direct optionality on TIER-0/1 bets — market signal without building</td></tr>
+      <tr><td>Chemistry-complementary (hair-care, beard, scalp-care D2C)</td><td class="num">3</td><td>Co-bundle with Vega Pro + acquisition-pipeline filter</td></tr>
+      <tr><td>Salon-tech-services (salon-SaaS, stylist marketplace, training)</td><td class="num">2</td><td>Locks TIER-0 Salon B2B moat — owns the layer above the tool</td></tr>
+      <tr><td>Tier-2/3 / Bharat D2C (regional-language commerce)</td><td class="num">2</td><td>Bharat ICP optionality without Vega-masterbrand dilution risk</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="mini-h">Cause Marketing — Doubles as Growth Lever</h4>
+  <ul>
+    <li><strong>Made-in-India "Vega Bharat"</strong> — piggybacks Yamuna MII 60→35% imported COGS; ₹2-3 cr storytelling</li>
+    <li><strong>Vega Renew (EPR-driven refurb)</strong> — compliance-as-revenue + ESG-score uplift; ₹3-4 cr collection logistics</li>
+    <li><strong>"Vega Sakhi"</strong> · Women-in-Salon empowerment — 500 women-stylist scholarships × ₹1 L over 3 yrs (₹4-6 cr); piggybacks Tier-0 Salon B2B + Stylist Awards Newcomer category</li>
+    <li><strong>"Lice-Free India"</strong> Swachh Bharat × schools — donate 500K lice-combs to 2,500 govt schools via Pratham / Smile Foundation; ₹2-3 cr (government goodwill matters for UP capital subsidy + Yamuna labour permits)</li>
+  </ul>
+
+  <h4 class="mini-h">Fashion Week + Vega Day</h4>
+  <p><strong>Lakmé Fashion Week × FDCI India Fashion Week (combined since 2023 consolidation)</strong> — Presenting Partner Backstage Tools — ₹2.5-3.5 cr/yr. Vega Pro becomes ONLY tool brand backstage = stylist credentialing on 200+ models × 50+ designers × 2 seasons = 800+ creator-content pieces/yr.</p>
+
+  <p><strong>Vega Day · First Saturday September (NOT Oct 1)</strong> — annual flagship compounding all four plays — Beauty Lab anniversary + BBI launch + Stylist Awards reel + Founders Fund portfolio demo + CMD keynote + ambassador panel + DII/FII investor cocktail (pre-DRHP relationship build). Y1 (Sep 2027) Yashobhoomi Dwarka · 1,800 attendees · ₹4.5-5.5 cr.</p>
+
+  <div class="callout">
+    <div class="callout-meta">Pillar 5 · The Integration Mandate</div>
+    Aggregate brand+flagship+platform narratives = <strong>+1.4-2.7 turns EV/Rev</strong> (re-rate 2.0-2.5× → 3.5-5× = ₹2,000-3,000 cr brand-value uplift on FY29 ₹700 cr revenue base) — <em>only if the flagships are integrated.</em> Awards winners staff Beauty Lab masterclasses. BBI data informs Founders Fund thesis. Vega Day compounds all four. Run them as siloed marketing programs and uplift collapses to ₹400-600 cr — barely covers the spend. <strong>Integration is the entire alpha.</strong>
+  </div>
+</section>
+
+<!-- ===== 90-DAY PLAN ===== -->
+<section id="plan-90">
+  <div class="eyebrow"><span class="eyebrow-num">08</span>The 90-Day Plan</div>
+  <h2 class="section-h">29 May → 27 August 2026. <em>Foundation.</em></h2>
+  <p class="section-sub">The first ninety days are non-negotiable. Six decisions this week unlock the rest of the 36-month window. Three sub-windows of thirty days each — commit, diagnose, decide.</p>
+
+  <h3 class="sub-h">Days 1–30 · COMMIT</h3>
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-t">A1</div><div class="tl-date">Week 1</div><div class="tl-body"><strong>Board resolution to initiate Pvt → Public conversion</strong> (Companies Act §18). ₹7-11 L regulatory + legal. CMD + CS-elect.</div></div>
+    <div class="tl-row"><div class="tl-t">A2</div><div class="tl-date">Week 1-2</div><div class="tl-body"><strong>Engage Big-4 IPO advisor</strong> (EY / KPMG / Deloitte / PwC / Grant Thornton Bharat) for 8-12 week IPO-readiness diagnostic. ₹40-80 L.</div></div>
+    <div class="tl-row"><div class="tl-t">A3</div><div class="tl-date">Week 1-2</div><div class="tl-body"><strong>Launch CEO + CFO + CS searches in parallel.</strong> Egon Zehnder (CEO + Board overlay) + Vito India / Native (CFO/COO/CHRO/CTO at 30% lower fees). Target shortlist by Week 8. <em>Karve + Nandi window closes within 12 months.</em></div></div>
+    <div class="tl-row"><div class="tl-t">A4</div><div class="tl-date">Week 2</div><div class="tl-body">Appoint internal <strong>IPO Programme Director</strong> (sponsor reporting to CMD weekly). ₹50-80 L/yr if external interim.</div></div>
+    <div class="tl-row"><div class="tl-t">A5</div><div class="tl-date">Week 3</div><div class="tl-body"><strong>Issue ERP RFP</strong> — SAP S/4 HANA RISE + Oracle Fusion shortlist. ₹15-25 cr capex envelope. YASH Technologies + LTIMindtree partner shortlist briefed.</div></div>
+    <div class="tl-row"><div class="tl-t">A6</div><div class="tl-date">Week 3-4</div><div class="tl-body"><strong>Big-4 statutory auditor transition initiated</strong> — Walker Chandiok-GT / SRBC-EY / Deloitte / PwC / KPMG-BSR. Effective FY27.</div></div>
+    <div class="tl-row"><div class="tl-t">A7</div><div class="tl-date">Week 4</div><div class="tl-body"><strong>Vega Doctrine v0 drafted</strong> — Mission + North Star + 5C operating system + RACI + Cadence. 1 page. CMD-signed.</div></div>
+  </div>
+
+  <h3 class="sub-h">Days 31–60 · DIAGNOSE</h3>
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-t">A8</div><div class="tl-date">Week 5-6</div><div class="tl-body">Big-4 IPO diagnostic mid-point review delivered to board.</div></div>
+    <div class="tl-row"><div class="tl-t">A9</div><div class="tl-date">Week 5-8</div><div class="tl-body"><strong>Industry market study commissioned</strong> — Frost &amp; Sullivan / Technopak for DRHP Industry Overview. ₹50-80 L. TAM/SAM/SOM for Indian BPC + beauty accessories + PCA sub-segments.</div></div>
+    <div class="tl-row"><div class="tl-t">A10</div><div class="tl-date">Week 5-6</div><div class="tl-body"><strong>KnitPro RPT diagnostic kickoff</strong> — Big-4 + legal. Map all flows (Indeutsch brush supply ₹8-15 cr / KnitPro shared procurement ₹3-8 cr / Rise Appliances contract mfg ₹10-25 cr / Sery digital sharing / Bharat Composites carbon-fibre / Vega Pvt Ltd royalty). Transfer-pricing study + arm's-length documentation. ₹30-60 L advisory.</div></div>
+    <div class="tl-row"><div class="tl-t">A11</div><div class="tl-date">Week 6-8</div><div class="tl-body"><strong>Independent Director search initiated</strong> (5 IDs incl. 1 Woman ID). Egon Zehnder Board / Korn Ferry Board / Hunt Partners (Woman ID). ₹15-25 L/yr retainer per ID.</div></div>
+    <div class="tl-row"><div class="tl-t">A12</div><div class="tl-date">Week 6-8</div><div class="tl-body"><strong>AI-MIS prototype</strong> — interim PowerBI/Tableau dashboards on existing Tally data (until SAP S/4 cutover Apr 2027). DataWeave pricing-scrape + Locobuzz sentiment onboarded. ₹40-60 L Y1.</div></div>
+    <div class="tl-row"><div class="tl-t">A13</div><div class="tl-date">Week 7</div><div class="tl-body"><strong>Vega Doctrine v1 — board-approved.</strong></div></div>
+    <div class="tl-row"><div class="tl-t">A14</div><div class="tl-date">Week 7-8</div><div class="tl-body"><strong>TIER-0 Bet 01 · Salon B2B</strong> — anchor salon-chain pilot agreements (Lakme / Naturals / Jawed Habib / Green Trends / YLG). ₹2-3 cr pilot budget. Head Salon B2B JD locked; search live.</div></div>
+  </div>
+
+  <h3 class="sub-h">Days 61–90 · DECIDE</h3>
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-t">A15</div><div class="tl-date">Week 9-10</div><div class="tl-body"><strong>ERP vendor selected · contract signed.</strong> SAP S/4 HANA RISE + YASH (prime) + LTIMindtree (PMO overlay). Sep 2026 kickoff.</div></div>
+    <div class="tl-row"><div class="tl-t">A16</div><div class="tl-date">Week 9-12</div><div class="tl-body"><strong>CEO candidate shortlist (3-5 named).</strong> Final-round interviews. <strong>CFO offer extended to Karve.</strong></div></div>
+    <div class="tl-row"><div class="tl-t">A17</div><div class="tl-date">Week 10</div><div class="tl-body">Big-4 IPO advisor <strong>final report + 36-month roadmap</strong> to board.</div></div>
+    <div class="tl-row"><div class="tl-t">A18</div><div class="tl-date">Week 11</div><div class="tl-body"><strong>Big-4 statutory auditor appointed</strong> (effective FY27 audit cycle).</div></div>
+    <div class="tl-row"><div class="tl-t">A19</div><div class="tl-date">Week 11-12</div><div class="tl-body"><strong>Pvt → Public conversion EGM held.</strong> MGT-14 + INC-27 filed.</div></div>
+    <div class="tl-row"><div class="tl-t">A20</div><div class="tl-date">Week 12</div><div class="tl-body"><strong>5-pillar growth plan board-approved.</strong> FY26 revenue restated targets: ₹360-400 cr (+27-41%).</div></div>
+    <div class="tl-row"><div class="tl-t">A21</div><div class="tl-date">Week 12</div><div class="tl-body">Yamuna plant construction kickoff confirmed. HDFC tranche-2 negotiation begins (₹30-50 cr).</div></div>
+  </div>
+</section>
+
+<!-- ===== 12-MONTH PLAN ===== -->
+<section id="plan-12">
+  <div class="eyebrow"><span class="eyebrow-num">09</span>The 12-Month Plan</div>
+  <h2 class="section-h">Sep 2026 → May 2027. <em>Build.</em></h2>
+  <p class="section-sub">Four quarters. C-suite onboards. ERP Phase-1 builds. TIER-0 bets ignite. Stylist Awards judging panel announced. The institution is born inside this year.</p>
+
+  <h3 class="sub-h">Q2 · Months 4-6 (Sep–Nov 2026)</h3>
+  <ul>
+    <li><strong>CEO onboarded</strong> (Nov 2026 target — single load-bearing milestone)</li>
+    <li><strong>CFO Karve + CS + COO</strong> onboarded</li>
+    <li>Internal Auditor (Protiviti co-source) starts engagement</li>
+    <li>ERP Phase-1 design begins — FI/CO/MM/SD scope locked</li>
+    <li>KnitPro RPT cleanup Phase-1 documentation — transfer-pricing study, arm's-length contracts, ICD cancellation</li>
+    <li><strong>Heads hired</strong>: Salon B2B, D2C, International, Product &amp; NPD</li>
+    <li>3 of 5 Independent Directors recruited</li>
+    <li>Yamuna plant shed construction begins; HDFC tranche-2 (₹30-50 cr) drawn</li>
+    <li>Head of Corporate Comms hire (₹80 L-1.5 cr); Adfactors PR retainer onboard</li>
+  </ul>
+
+  <h3 class="sub-h">Q3 · Months 7-9 (Dec 2026 – Feb 2027)</h3>
+  <ul>
+    <li>ERP Phase-1 build + UAT</li>
+    <li><strong>Pre-IPO PE round formally launched</strong> — Lighthouse + Marico strategic + Multiples exploratory meetings. Target close Q4 FY27 at ₹1,800-2,200 cr post-money, ₹250-350 cr primary.</li>
+    <li><strong>TIER-0 Bet 01</strong> Salon B2B live with 2 anchor salon chains (Lakme + Jawed Habib)</li>
+    <li><strong>TIER-0 Bet 04</strong> Subscription consumables aftermarket pilot launched on Shopify Plus / Recharge — 3 SKU pilot (trimmer blades + dryer filters + brush bristles)</li>
+    <li><strong>TIER-0 Bet 07</strong> Vega Atelier NPD pipeline starts — Lekha Design + Onio Design engaged. Alia Bhatt ambassador negotiation begins.</li>
+    <li>DPDP Act compliance build starts — Consent Management Platform (OneTrust/Securiti.ai) + DPIA + RoPA + DPO appointment</li>
+    <li>SEBI CSCRF cyber-security baseline — Microsoft Sentinel + Defender XDR + CERT-In empanelled audit</li>
+    <li><strong>All 5 IDs onboarded.</strong> LODR committees constituted: Audit, NRC, SRC, RMC, CSR</li>
+    <li>CHRO (Gama) + CTO + GC onboarded</li>
+    <li>Bharat Beauty Index field research (Kantar) commences</li>
+  </ul>
+
+  <h3 class="sub-h">Q4 · Months 10-12 (Mar–May 2027)</h3>
+  <ul>
+    <li><strong>ERP Phase-1 GO-LIVE</strong> — FI/CO/MM/SD on Noida operating entity</li>
+    <li>Frost &amp; Sullivan / Technopak industry overview locked for DRHP</li>
+    <li><strong>Vega Bharat Beauty Index #1 launched</strong> at Mumbai LFW Day-1 morning — Kantar + IIM-A co-published</li>
+    <li>Vega Beauty Lab Noida — interior fitout begins</li>
+    <li>FY27 budget locked: revenue ₹360-400 cr → ₹450-500 cr FY28 → ₹600-750 cr FY29</li>
+    <li>16 governance policies adopted (Code of Conduct, PIT/UPSI, Whistleblower, RPT, Risk Management, Dividend, POSH, Familiarisation, NRC, Materiality, Doc Retention, Diversity, Succession, Anti-Bribery, CSR, Material Subsidiary)</li>
+    <li>BRLM beauty parade preparation (Kotak Mahindra Capital · Axis Capital · ICICI Securities · JM Financial · IIFL Capital · Nuvama / Ambit junior co-lead)</li>
+    <li><strong>Pre-IPO PE round closed</strong> — Lighthouse lead + Marico strategic anchor + Multiples co-investor</li>
+    <li><strong>TIER-0 Bet 05</strong> Hard-water chelating brush + clarifying spray — first SKU "Vega HydroPure" launched ₹999</li>
+    <li>TIER-0 Bet 08 Electric oral care — sonic motor capex committed; Y2 launch planned</li>
+    <li>Sery Tools (D2C beauty lab) soft launch</li>
+  </ul>
+</section>
+
+<!-- ===== 36-MONTH IPO PATH ===== -->
+<section id="ipo-path">
+  <div class="eyebrow"><span class="eyebrow-num">10</span>The 36-Month IPO Path</div>
+  <h2 class="section-h">May 2026 → May 2029. <em>The full gantt.</em></h2>
+  <p class="section-sub">Eleven milestones. Each gates the next. Each has a quantified consequence if missed. The Pvt → Public conversion in Month 3 unlocks every subsequent regulatory step; the CEO + CFO onboarding in Month 6 unlocks every subsequent organisational step; the ERP go-live in Month 12 unlocks the audit cycle; the DRHP filing in Month 24 closes the strategic window.</p>
+
+  <table>
+    <thead>
+      <tr><th class="num">T-minus</th><th>Month</th><th>Calendar</th><th>Milestone</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num"><strong>T-36</strong></td><td class="num">0</td><td>May 2026</td><td>90-day plan kicks off · ERP RFP issued · CEO+CFO searches launched · Big-4 IPO advisor engaged</td></tr>
+      <tr><td class="num"><strong>T-33</strong></td><td class="num">3</td><td>Aug 2026</td><td><strong>Pvt → Public Ltd conversion complete</strong> · ERP contract signed (SAP S/4 + YASH + LTIMindtree)</td></tr>
+      <tr><td class="num"><strong>T-30</strong></td><td class="num">6</td><td>Nov 2026</td><td><strong>CEO + CFO Karve + CS onboarded</strong> · Internal Auditor live · KnitPro RPT diagnostic complete</td></tr>
+      <tr><td class="num"><strong>T-24</strong></td><td class="num">12</td><td>May 2027</td><td><strong>All KMP + all 5 IDs + ERP Phase-1 live · FY27 closed Ind AS-ready</strong> · Bharat Beauty Index #1 launched · Pre-IPO PE round closed at ₹1,800-2,200 cr</td></tr>
+      <tr><td class="num"><strong>T-22</strong></td><td class="num">14</td><td>Jul 2027</td><td><strong>BRLM beauty parade</strong> · Kotak Mahindra Capital + Axis Capital + ICICI Securities + JM Financial + IIFL Capital + Nuvama/Ambit · CTO + GC onboarded</td></tr>
+      <tr><td class="num"><strong>T-18</strong></td><td class="num">18</td><td>Nov 2027</td><td>BRLMs appointed · DRHP drafting begins · TIER-0 bets revenue-bearing · Yamuna plant Phase-1 operational</td></tr>
+      <tr><td class="num"><strong>T-12</strong></td><td class="num">24</td><td>May 2028</td><td><strong>DRHP filed with SEBI</strong> · FY28 closed (target revenue ₹450-500 cr) · <strong>Vega Beauty Lab opens</strong> · Vega Stylist Awards #1 (paired-week double-press cycle) · Bharat Beauty Index #2</td></tr>
+      <tr><td class="num"><strong>T-9</strong></td><td class="num">27</td><td>Aug 2028</td><td>SEBI observations cycle begins · EY Entrepreneur of the Year India win target (Falguni template) · Cannes Lions India campaign entered</td></tr>
+      <tr><td class="num"><strong>T-6</strong></td><td class="num">30</td><td>Nov 2028</td><td>SEBI observations addressed · UDRHP filed · Vega Day #2 anniversary · Edelman IPO comms team onboarded</td></tr>
+      <tr><td class="num"><strong>T-3</strong></td><td class="num">33</td><td>Feb 2029</td><td>CMD media moratorium begins (SEBI silent period) · pre-marketing roadshow comms · Anchor LP soft-meetings</td></tr>
+      <tr><td class="num"><strong>T-0</strong></td><td class="num"><strong>36</strong></td><td><strong>May 2029</strong></td><td><strong>IPO opens.</strong> Target FY29 revenue ₹600-750 cr. FY30 target ₹1,000+ cr.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Valuation Envelope · FY29 Listing</h3>
+
+  <table class="data">
+    <thead>
+      <tr><th>Scenario</th><th class="num">Probability</th><th class="num">Market cap</th><th class="num">EV / Revenue</th><th class="num">P / E</th><th>Requires</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Bear</strong></td><td class="num">30%</td><td class="num">₹2,000-2,500 cr</td><td class="num">3.0-3.5×</td><td class="num">28-32×</td><td>FY29 revenue ₹575 cr · EBITDA 12% · weak premium-mix execution</td></tr>
+      <tr><td><strong>Base</strong></td><td class="num"><strong>50%</strong></td><td class="num"><strong>₹3,500-4,500 cr</strong></td><td class="num"><strong>4.5-5.5×</strong></td><td class="num"><strong>35-45×</strong></td><td>FY29 revenue ₹700 cr · EBITDA 16% · PAT ₹55 cr · 5 of 8 TIER-0 bets revenue-bearing</td></tr>
+      <tr><td><strong>Bull</strong></td><td class="num">20%</td><td class="num">₹5,000-6,000+ cr</td><td class="num">6.5-8.0×</td><td class="num">50-60×</td><td>FY29 revenue ₹820 cr · EBITDA 18% · PAT ₹78 cr · Marico strategic anchor live · Founders Fund portfolio 2-3× markup · Carbon-fibre B2B disclosed as Industrial Composites segment</td></tr>
+    </tbody>
+  </table>
+
+  <p>Expected market cap (probability-weighted): <strong>~₹3,700-4,000 cr</strong>. Recommended issue size: <strong>₹600-800 cr</strong> (Fresh ₹400-500 cr + OFS ₹150-250 cr). Use of fresh proceeds: debt repay ₹200 cr · further capex ₹100 cr · working capital ₹50 cr · general corporate ₹50 cr.</p>
+
+  <p>IPO route: <strong>SEBI ICDR Reg 6(1) Profitability Route</strong>. QIB route (Reg 6(2)) is a fallback, not a base case. Pre-IPO PE round at ₹1,800-2,200 cr is the second fallback.</p>
+
+  <h3 class="sub-h">Capital Allocation · 36 Months</h3>
+  <table>
+    <thead>
+      <tr><th>Bucket</th><th class="num">36-mo spend</th><th>Funding source</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Yamuna plant capex (₹91-150 cr committed)</td><td class="num">₹150 cr</td><td>HDFC tranches ₹78-98 cr · UP capital subsidy ₹13-18 cr · SGST reimbursement ₹4-8 cr NPV · internal accruals ₹20-30 cr · promoter ₹5-15 cr</td></tr>
+      <tr><td>Pillar 1 · ERP + AI-MIS + SCM + Lean + Compliance + CRM/D2C tech</td><td class="num">₹145-223 cr</td><td>Internal accruals + Pre-IPO PE primary</td></tr>
+      <tr><td>Pillar 2 · TIER-0 + TIER-1 diversification capex (8 + 11 bets)</td><td class="num">₹37-83 cr</td><td>Internal + Pre-IPO PE</td></tr>
+      <tr><td>Pillar 3 · KMP + Board + ESOP fair-value charge + Search firm fees</td><td class="num">₹40-55 cr</td><td>Operating P&amp;L</td></tr>
+      <tr><td>Pillar 4 · IP filings + Ambassadors + Creative agency + Trade/Channel</td><td class="num">₹400-570 cr</td><td>Operating P&amp;L (8-12% revenue)</td></tr>
+      <tr><td>Pillar 5 · Brand identity + Community + PR + Flagship plays + Founders Fund corpus</td><td class="num">₹165-260 cr (incl. ₹75 cr Founders Fund asset)</td><td>Operating P&amp;L + Vega Ventures LLP separate vehicle</td></tr>
+      <tr><td><strong>Total deployable spend FY26-FY29</strong></td><td class="num"><strong>~₹940-1,340 cr</strong></td><td>Cumulative revenue FY26-29 ₹1,720 cr base case · 55-78% of cumulative revenue</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-meta">Capital Discipline Note</div>
+    <em>The ₹940-1,340 cr is gross spend across all pillars over 36 months</em> — most of it is operating-P&amp;L spend recovered inside revenue uplift, not net cash outflow. Net incremental cash requirement above current operating envelope is ₹350-450 cr — comfortably covered by Yamuna capex (already debt-funded) + Pre-IPO PE round (₹250-350 cr primary).
+  </div>
+</section>
+
+<!-- ===== DECISIONS THIS WEEK ===== -->
+<section id="decisions">
+  <div class="eyebrow"><span class="eyebrow-num">11</span>Decisions This Week</div>
+  <h2 class="section-h">Six approvals. <em>The 36-month clock starts here.</em></h2>
+  <p class="section-sub">A board-grade deliverable is only as useful as the next seven days of action. These six approvals unlock everything that follows. Sign and date.</p>
+
+  <div class="decision">
+    <div class="decision-box"></div>
+    <div class="decision-body">
+      <strong>Approve CEO + CFO search mandate.</strong> Egon Zehnder India (CEO + Board overlay) + Vito India / Native Executive Search (CFO/COO/CHRO/CTO). Karve + Nandi target close T-30 (Nov 2026).
+      <div class="decision-meta">Search fees ₹1.5-3.0 cr · Net-net <em>the single highest-leverage decision in the 36-month window</em></div>
+    </div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-box"></div>
+    <div class="decision-body">
+      <strong>Approve Big-4 IPO advisor engagement.</strong> EY · KPMG · Deloitte · PwC · Grant Thornton Bharat — competitive RFP, 8-12 week diagnostic.
+      <div class="decision-meta">Cost ₹40-80 L · Output: gap report + 36-month roadmap + risk register</div>
+    </div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-box"></div>
+    <div class="decision-body">
+      <strong>Approve ERP RFP launch.</strong> SAP S/4 HANA Cloud RISE Private Edition shortlist · YASH Technologies (prime) + LTIMindtree (PMO/governance overlay). 18-month phased rollout.
+      <div class="decision-meta">Capex envelope ₹15-25 cr · 7-yr TCO ₹107-168 cr · Apr 2027 Wave-1 cutover</div>
+    </div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-box"></div>
+    <div class="decision-body">
+      <strong>Approve board resolution for Pvt → Public conversion.</strong> Companies Act §18 · EGM notice 21 days · Special Resolution · MGT-14 (30 days) · INC-27 (15 days) · fresh CoI.
+      <div class="decision-meta">Cost ₹7-11 L · Target conversion complete T-33 (Aug 2026)</div>
+    </div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-box"></div>
+    <div class="decision-body">
+      <strong>Approve KnitPro RPT diagnostic.</strong> Big-4 + legal · map all flows · transfer-pricing study · arm's-length documentation · cancel back-to-back ICDs · separate shared employees.
+      <div class="decision-meta">Cost ₹30-60 L · Estimated annual RPT flow exceeds SEBI LODR Reg 23 threshold (10% revenue = ₹28.3 cr) · Mandatory cleanup pre-DRHP</div>
+    </div>
+  </div>
+
+  <div class="decision">
+    <div class="decision-box"></div>
+    <div class="decision-body">
+      <strong>Approve Vega Doctrine drafting and CMD sign-off.</strong> 1-page document. Mission · North Star metric · 5C operating system · RACI · Operating cadence. Every QBR benchmarked against it.
+      <div class="decision-meta">Internal · zero external cost · single highest-leverage written artefact of the 36-month build</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-meta">Signature Block</div>
+    <em>Six decisions. ₹1.6-3.5 cr of fees committed.</em> The fees are immaterial against the consequence. The decisions are the consequence.<br><br>
+    <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);">_______________________________________________</span><br>
+    <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper-2);">Sandeep Jain · Chairman &amp; Managing Director · Date</span>
+  </div>
+</section>
+
+<!-- ===== APPENDIX ===== -->
+<section id="appendix">
+  <div class="eyebrow"><span class="eyebrow-num">12</span>Appendix</div>
+  <h2 class="section-h">Sources, <em>figures, citations.</em></h2>
+  <p class="section-sub">Every claim in this document is footnote-traceable. The 16 inline citations map to the source columns below. The full Verified Facts Dossier (285 line-items across 58 research files) is held at the path noted at the foot of this appendix and is available on request.</p>
+
+  <h3 class="sub-h">Key Figures · Verified Source Map</h3>
+
+  <table class="data tight">
+    <thead>
+      <tr><th>Fact</th><th>Value</th><th>Source</th><th class="num">Confidence</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Legal name</td><td>VEGA INDUSTRIES PRIVATE LIMITED</td><td>MCA · CIN U74899DL1995PTC066449</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Incorporation</td><td>16 March 1995</td><td>RoC-Delhi</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>FY25 revenue</td><td>₹283 cr · +4.43% YoY</td><td>Tracxn / Tofler</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>FY25 PAT YoY</td><td>–11.38%</td><td>Tofler</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>FY25 Borrowings YoY</td><td>+203.88%</td><td>Tofler</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>HDFC live charges</td><td>₹50.30 cr · single-bank exposure</td><td>MCA charge register</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Promoter holding</td><td>92.83% (FY24)</td><td>thecompanycheck</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Yamuna plant capex</td><td>₹91 cr (YEIDA MOU) / ~₹150 cr (company stretch)</td><td>YEIDA / Business Standard / Sandeep Jain LinkedIn</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Yamuna allotment</td><td>May 2026 · 500 jobs · domestic appliances + PCA + electricals</td><td>Business Standard 2026-05-24 · prokerala</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Hair-dryer share 2025F</td><td>Philips 20% · Havells 15% · <strong>Vega 10%</strong> · Dyson 8% · Agaro 8%</td><td>Markets and Data India hair-dryer report</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>India hair-dryer TAM</td><td>USD 813 mn (2025) → USD 2.1 bn (2035) · 8.1% CAGR</td><td>industrytoday.co.uk</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>India Salon Professional TAM</td><td>₹2,554 cr (2024) · 8.6% CAGR through 2034</td><td>Expert Market Research</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Havells consolidated FY25</td><td>₹21,778 cr · 77× Vega</td><td>screener.in</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Agaro / UCL group FY25</td><td>₹1,910 cr</td><td>Tracxn · UCL India</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Lifelong Online FY25</td><td>₹540 cr · founder re-acquired 2024 from Thrasio</td><td>thekredible · Tracxn</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Bombay Shaving Co FY25</td><td>₹271 cr · +16% · IPO target 18-24 mo · PAT loss ₹58 cr (down 6.5%)</td><td>startuppedia · Business Standard · entrackr</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>L'Oréal India FY25</td><td>₹5,925.33 cr · +6.25% · PAT ₹597.54 cr (+22.6%)</td><td>unlistedzone</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Brand ambassadors</td><td>Rohit Sharma (Vega Men since Oct 2020) · Ananya Panday (LitStyle 2024)</td><td>Business Standard ANI · Zee Biz · afaqs</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Creative agency</td><td>Leo Burnett (Publicis)</td><td>afaqs.com mandate announcement</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>SEBI ICDR Regulations 2018</td><td>Amended 8 March 2025 · capex lock-in · pre-IPO reporting · capex use-of-proceeds</td><td>sebi.gov.in · Cyril Shroff Client Alert · Lexology</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Companies Act §138 trigger</td><td>Internal Audit mandatory ≥ ₹200 cr turnover · Vega ₹283 cr <strong>TRIGGERED</strong></td><td>MCA / Companies Act 2013</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Ind AS Phase II trigger</td><td>Net worth ≥ ₹250 cr · Vega inferred ~₹238 cr (straddles)</td><td>Ind AS Rules 2015 Rule 4</td><td class="num">CONFIRMED / INFERRED</td></tr>
+      <tr><td>DPDP Act effective</td><td>13 May 2027 (substantive provisions)</td><td>meity.gov.in · DPDP Rules 2025</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>DPDP penalty ceiling</td><td>₹250 cr per security failure</td><td>meity.gov.in</td><td class="num">CONFIRMED</td></tr>
+      <tr><td>Vega FY29 inferred PAT</td><td>₹55 cr · 7.9% margin · ROCE 21%</td><td>FY26-FY30 model derivation · Wave-1 finance triangulation</td><td class="num">INFERRED</td></tr>
+      <tr><td>Vega FY29 pre-IPO PE valuation band</td><td>₹1,300-1,600 cr DCF-grounded · ₹1,800-2,200 cr strategic-anchor band</td><td>Peer comp matrix (Crompton / Symphony / Stove Kraft / Bajaj Consumer / Mamaearth)</td><td class="num">INFERRED</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">Inline Citations · Source Index</h3>
+  <ol>
+    <li>Tracxn / Tofler FY25 revenue + YoY · industrytoday.co.uk India hair-dryer market · Ken Research India PCA</li>
+    <li>Tofler PAT + Borrowings YoY · MCA charge register HDFC ₹48 cr term loan 11-Jun-2025</li>
+    <li>DeepDive-LinkedIn audit · public LinkedIn signal black-holes for CFO/COO/CHRO/CTO/Head SCM/Head Procurement/Head R&amp;D/Head Exports</li>
+    <li>screener.in Havells FY25 · Tracxn Agaro/UCL · thekredible Lifelong · startuppedia BSC · unlistedzone Philips</li>
+    <li>thecompanycheck Sandeep Jain DIN 00708266 · knitpro.eu/about-us · zaubacorp Vega Pvt Ltd 1994 + Sery LLP · falconebiz Bharat Composites · SEBI LODR Reg 23 · Ind AS 24 · Companies Act §188</li>
+    <li>Marico FY23 SAP S/4 migration · Dabur SAP since 2020 · Crompton + Havells + Symphony + TTK + Bajaj Electricals SAP houses (publicly disclosed)</li>
+    <li>O3+ Command Centre Skin Recommendation Engine pattern (group-asset reference) · Azure OpenAI + AI Search RAG architecture</li>
+    <li>Mahindra Logistics + Stellar Value Chain India 3PL benchmark · Delhivery 19,000+ pincodes FY25 · Shiprocket D2C aggregator</li>
+    <li>Markets and Data India hair-dryer · Expert Market Research India Salon Professional · L'Oréal India 127,400+ stylists trained 2025 · Wahl India networth -66% (Tofler)</li>
+    <li>indeutsch.com · m.indeutsch.com · KnitPro IP architecture (Indeutsch holds KnitPro trademark)</li>
+    <li>bharatcomposites.com · nitprocomposites.com · German prepreg + pultrusion 30,000 m/month · falconebiz Bharat Composites U22209DL2023PTC423268</li>
+    <li>Mamaearth subscription model · Honasa Recharge Payments precedent · industry benchmark razor-blade economics</li>
+    <li>CGWB district hard-water reports · L'Oréal Hard Water Shampoo India launch 2024 · Mintel India Beauty 2024 abstract</li>
+    <li>knitpro.eu/about-us · michaels.com Symfonie listings · lanternmoon.com h+h Cologne 2026 · viridianyarn.com</li>
+    <li>Euromonitor India PCA 2025 · Dyson India estimated revenue · Pro-Shyne Titanium Nykaa listing ₹5,600</li>
+    <li>Mordor Intelligence India Oral Care 2024 · Statista India Electric Toothbrush 2025</li>
+  </ol>
+
+  <h3 class="sub-h">Research File Index</h3>
+  <p>Full corpus held at <span style="font-family: var(--mono); font-size: 11px;">C:\Udbhav Github\Vega\Web-Research-Vega-Industries\</span> (16 base files + DeepDive-Financials/10 + DeepDive-LinkedIn/9 + DeepDive-Competition/9 + IPO-Readiness-Gap-Analysis/14 = 58 files).</p>
+
+  <p>Synthesis documents at <span style="font-family: var(--mono); font-size: 11px;">C:\Udbhav Github\Vega\Deliverable-V2\Research\</span>:</p>
+  <ul>
+    <li><strong>01_Wave-1-Synthesis.md</strong> — Current-state lock (Manufacturing+IP+Group / ICP+Consumer / Trade+Channel / Financial Triangulation)</li>
+    <li><strong>02_Wave-2A-Synthesis.md</strong> — Goals 1+2 (Operating System × 4 hunters · Diversification × 6 hunters)</li>
+    <li><strong>03_Wave-2B-Partial-Synthesis.md</strong> — Goals 3+4+5 (KMP · BD org · NPD+Board+PE · Defense · IP+Ambassador · Channel power · Brand arch · Community · PR/CMD voice · Flagship plays)</li>
+  </ul>
+
+  <h3 class="sub-h">Confidence Taxonomy</h3>
+  <ul>
+    <li><span class="badge confirmed">CONFIRMED</span> Multi-source primary or named verifiable source</li>
+    <li><span class="badge inferred">INFERRED</span> Single defensible derivation with explicit logic chain</li>
+    <li><span class="badge contrarian">CONTRARIAN-SIGNAL</span> Non-consensus observation with conviction signals</li>
+    <li><span class="badge reject">REJECTED-WITH-REASON</span> Surfaced but rejected · reason given</li>
+    <li><em>UNVERIFIED</em> Last-resort only · minimised throughout</li>
+  </ul>
+</section>
+
+</main>
+
+<!-- ========== GUTTER MARGINALIA ========== -->
+<aside class="gutter">
+  <div style="position: sticky; top: 80px; padding-top: 80px;">
+    <div class="gutter-note" style="border-top: none;">
+      <div class="gutter-note-h">Research Base</div>
+      285 verified facts · 58 research files · 24 parallel strategy hunters · 5 confidence tags (CONFIRMED / INFERRED / CONTRARIAN-SIGNAL / REJECTED-WITH-REASON / UNVERIFIED)
+    </div>
+    <div class="gutter-note">
+      <div class="gutter-note-h">Source Discipline</div>
+      Primary: MCA filings, SEBI/RBI/DGFT records, Tofler, audited reports, Euromonitor, Mintel, Frost &amp; Sullivan, RedSeer, Kantar, IBEF, Big-4 sector reports. UNVERIFIED tag minimised; absent claims explicitly flagged.
+    </div>
+    <div class="gutter-note">
+      <div class="gutter-note-h">Prepared By</div>
+      Strategy &amp; IPO Readiness Advisory · For exclusive use of Vega Industries Board and authorised advisors.
+    </div>
+  </div>
+</aside>
+
+<div class="footer">
+  <span>Vega Industries Pvt Ltd · The 36-Month Blueprint · 2026</span>
+  <span class="sig-block">End of document · 12 sections · ~26,000 words · audit-traceable</span>
+</div>
+
+</div><!-- /.shell -->
+
+<script>
+// scroll spy
+(function() {
+  const items = document.querySelectorAll('.nav-item');
+  const sections = Array.from(items).map(a => {
+    const id = a.getAttribute('href').slice(1);
+    return { item: a, el: document.getElementById(id) };
+  }).filter(s => s.el);
+
+  function onScroll() {
+    const y = window.scrollY + 100;
+    let active = sections[0];
+    for (const s of sections) {
+      if (s.el.offsetTop <= y) active = s;
+    }
+    items.forEach(i => i.classList.remove('active'));
+    if (active) active.item.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
