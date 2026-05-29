@@ -759,6 +759,15 @@ sup.cite {
     padding: 0 18px;
   }
 
+  /* CRITICAL: reset grid-column for all shell children so they occupy the single column */
+  .meta-bar,
+  .nav-rail,
+  .content,
+  .gutter,
+  .footer {
+    grid-column: 1 / -1;
+  }
+
   .meta-bar {
     flex-wrap: wrap;
     gap: 6px;
