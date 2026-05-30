@@ -1348,6 +1348,97 @@ sup.cite {
     </tbody>
   </table>
 
+  <h3 class="sub-h">Layer 02b · The Vega Command Centre</h3>
+  <p>Management named its own third pain point plainly: limited data-driven decision-making and limited technology-led business insight. The reports and bots above produce the data. The Command Centre is where that data becomes decisions. It is one screen the CMD, the CEO and every function head open each morning and see the whole business, live, with no one compiling anything by hand. This is the single biggest shift from running the company on memory and gut to running it on a shared, current picture.</p>
+  <p>The idea is simple. Every number on the screen pulls straight from the systems Vega already runs (SAP BI, MAssist, the CRM) and the marketplace feeds. Green means fine, amber means watch, red means act today. Nobody hunts for a file. The screen tells you where to look, and one click goes to the detail. Below is the shape of it: thirteen views behind one home screen, and what the home screen looks like.</p>
+
+  <style>
+    .cc-wrap { border: 1px solid var(--rule); background: #fff; border-radius: 6px; overflow: hidden; margin: 18px 0 10px; box-shadow: 0 1px 0 var(--rule-2); }
+    .cc-bar { display: flex; align-items: center; justify-content: space-between; background: var(--ink); color: #fff; padding: 9px 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .04em; }
+    .cc-bar .live { color: #7CE3A4; }
+    .cc-body { display: grid; grid-template-columns: 188px 1fr; }
+    .cc-rail { background: var(--paper-2); border-right: 1px solid var(--rule); padding: 10px 0; }
+    .cc-rail div { padding: 6px 14px; font-size: 12px; color: var(--ink-3); border-left: 3px solid transparent; }
+    .cc-rail div.on { background: #fff; border-left-color: var(--oxblood); color: var(--ink); font-weight: 600; }
+    .cc-main { padding: 14px; }
+    .cc-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+    .cc-m { border: 1px solid var(--rule); border-radius: 5px; padding: 10px 12px; background: var(--paper); }
+    .cc-m .l { font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+    .cc-m .v { font-family: Spectral, serif; font-size: 22px; color: var(--ink); margin: 2px 0; }
+    .cc-m .s { font-size: 11px; color: var(--muted); }
+    .cc-m .s.up { color: #1E7A46; } .cc-m .s.warn { color: #B5790F; } .cc-m .s.down { color: var(--oxblood); }
+    .cc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cc-card { border: 1px solid var(--rule); border-radius: 5px; padding: 11px 12px; }
+    .cc-card .h { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
+    .cc-row { display: grid; grid-template-columns: 86px 1fr 40px; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 12px; }
+    .cc-track { background: var(--paper-2); height: 9px; border-radius: 5px; overflow: hidden; }
+    .cc-fill { height: 100%; }
+    .cc-al { font-size: 12px; padding: 6px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 8px; align-items: flex-start; }
+    .cc-al:last-child { border-bottom: 0; }
+    .cc-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; flex: 0 0 8px; }
+    .cc-note { font-size: 11px; color: var(--muted-2); font-style: italic; margin: 6px 0 22px; }
+    @media (max-width: 700px) { .cc-body { grid-template-columns: 1fr; } .cc-rail { display: none; } .cc-metrics { grid-template-columns: 1fr 1fr; } .cc-split { grid-template-columns: 1fr; } }
+  </style>
+
+  <div class="cc-wrap">
+    <div class="cc-bar"><span>VEGA COMMAND CENTRE &nbsp;·&nbsp; Executive Home</span><span class="live">● LIVE &nbsp; 06:00 IST</span></div>
+    <div class="cc-body">
+      <div class="cc-rail">
+        <div class="on">Executive Home</div>
+        <div>3-Year IPO Plan</div>
+        <div>Channel P&amp;L and Margin</div>
+        <div>SKU Profitability</div>
+        <div>Demand Forecast</div>
+        <div>Inventory and Aging</div>
+        <div>Production</div>
+        <div>Supply Chain and Dispatch</div>
+        <div>New Product Pipeline</div>
+        <div>Sales by Channel</div>
+        <div>Quality and Returns</div>
+        <div>Team and Performance</div>
+        <div>Ask Vega (AI)</div>
+      </div>
+      <div class="cc-main">
+        <div class="cc-metrics">
+          <div class="cc-m"><div class="l">MTD Revenue</div><div class="v">&#8377;28.6 Cr</div><div class="s up">82% of month target</div></div>
+          <div class="cc-m"><div class="l">Online share (E-com + QC)</div><div class="v">50%</div><div class="s">QC 20% · E-com 30%</div></div>
+          <div class="cc-m"><div class="l">Inventory days</div><div class="v">88</div><div class="s warn">target 70-75</div></div>
+          <div class="cc-m"><div class="l">Fill rate (yesterday)</div><div class="v">96.2%</div><div class="s up">SLA 95%</div></div>
+          <div class="cc-m"><div class="l">Orders overdue &gt;48h</div><div class="v">18</div><div class="s down">GT 12 · E-com 6</div></div>
+          <div class="cc-m"><div class="l">Dead stock &gt;180d</div><div class="v">&#8377;0.85 Cr</div><div class="s down">write-off review</div></div>
+        </div>
+        <div class="cc-split">
+          <div class="cc-card">
+            <div class="h">Revenue by channel (live mix)</div>
+            <div class="cc-row"><span>General Trade</span><span class="cc-track"><span class="cc-fill" style="width:35%; background:var(--accent);"></span></span><span>35%</span></div>
+            <div class="cc-row"><span>E-commerce</span><span class="cc-track"><span class="cc-fill" style="width:30%; background:var(--accent-2);"></span></span><span>30%</span></div>
+            <div class="cc-row"><span>Quick Commerce</span><span class="cc-track"><span class="cc-fill" style="width:20%; background:var(--gold);"></span></span><span>20%</span></div>
+            <div class="cc-row"><span>Modern Trade</span><span class="cc-track"><span class="cc-fill" style="width:10%; background:#888;"></span></span><span>10%</span></div>
+            <div class="cc-row"><span>Salon B2B</span><span class="cc-track"><span class="cc-fill" style="width:3%; background:var(--oxblood);"></span></span><span>3%</span></div>
+            <div class="cc-row"><span>Inst + Exports</span><span class="cc-track"><span class="cc-fill" style="width:2%; background:#b47cc5;"></span></span><span>2%</span></div>
+          </div>
+          <div class="cc-card">
+            <div class="h">Alerts and exceptions (act today)</div>
+            <div class="cc-al"><span class="cc-dot" style="background:var(--oxblood);"></span><span><strong>18 orders overdue beyond 48h.</strong> General Trade 12, E-commerce 6.</span></div>
+            <div class="cc-al"><span class="cc-dot" style="background:#B5790F;"></span><span><strong>Top trimmer SKU out of stock</strong> on two quick-commerce platforms in the South.</span></div>
+            <div class="cc-al"><span class="cc-dot" style="background:#B5790F;"></span><span><strong>Price below floor</strong> flagged on a marketplace seller, margin leak.</span></div>
+            <div class="cc-al"><span class="cc-dot" style="background:var(--accent);"></span><span><strong>Baby &amp; Mom batch near expiry</strong> in 4 months, scheme suggested.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="cc-note">Sample layout to show the interface and the thinking behind it. Channel shares are Vega's real mix; the other figures are illustrative placeholders, not actual Vega numbers.</p>
+
+  <p>The thirteen views in the rail are the whole business in one place: the IPO plan and targets, channel profit, which SKUs actually make money, the demand forecast, inventory and aging, the two plants, dispatch, the new-product pipeline that carries the diversification bets, sales by channel, quality and returns, the team view pulled from the HR system, and an "Ask Vega" box where a head can type a plain question ("which products lost margin in quick commerce last month?") and get the answer from the data, not from a meeting.</p>
+
+  <div class="box">
+    <div class="box-h">What this fixes, in the CMD's own words</div>
+    <p style="margin-bottom: 8px;"><strong>"Limited data-driven decisions."</strong> Decisions move from memory and opinion to one shared, current screen. Every head sees the same numbers, so the argument is about what to do, not about whose number is right.</p>
+    <p style="margin-bottom: 8px;"><strong>"Limited technology-led insight."</strong> The bots watch for drift, stock-outs, price breaks and bad reviews and surface them before they cost money. The insight comes to the leader; the leader does not go digging for it.</p>
+    <p style="margin-bottom: 0;"><strong>"Gaps in accountability and ownership."</strong> Every alert has an owner and a clock. Nothing sits unseen. This is the same screen the board will expect to see, so building it now is also IPO groundwork.</p>
+  </div>
+
   <h3 class="sub-h">Layer 03 · The Customer Tool: "Vega HairPrint"</h3>
   <p>A simple online quiz that recommends the right Vega products for a person's hair. It takes about a minute. It does three jobs at once: it lifts sales on the website, it gives salons a tool to use with clients, and it tells the product team exactly what people need (especially for Indian hair and Indian weather).</p>
 
@@ -1570,7 +1661,7 @@ sup.cite {
     <tbody>
       <tr><td>09</td><td><strong>Pet grooming appliances</strong> (dryers, brushes, dental, trimmers)</td><td class="num">₹400–700 cr</td><td class="num">₹25–45 cr</td><td>Fastest-growing humanisation category; same factory + same consumer; sector tailwind for IPO narrative</td></tr>
       <tr><td>10</td><td><strong>Bridal trousseau curated kits</strong> ₹5–20K</td><td class="num">₹920 cr addressable</td><td class="num">₹30–80 cr</td><td>Zero capex; SKU re-bundling of existing range; rides ₹6 lakh-cr wedding economy</td></tr>
-      <tr><td>11</td><td><strong>Beauty-device suite</strong> (LED face mask + microcurrent + ice-globe)</td><td class="num">₹520–920 cr</td><td class="num">₹25–85 cr</td><td>Largest market in this group; lifts premium mix; needs the electronics line first</td></tr>
+      <tr><td>11</td><td><strong>Beauty and wellness device suite</strong> (LED and red-light face mask and hat, IPL and laser hair removal, microcurrent, ice-globe, at-home skincare tools)</td><td class="num">₹520–920 cr</td><td class="num">₹25–85 cr</td><td>Largest market in this group; lifts premium mix; red-light and IPL are the fastest-growing at-home device lines; needs the electronics line first</td></tr>
       <tr><td>12</td><td><strong>Indian-texture-engineered styler</strong> (coily/wavy/oil-bathed)</td><td class="num">₹300–500 cr</td><td class="num">₹20–55 cr</td><td>Patent-defensible India-engineering; structurally unreachable for global brands</td></tr>
       <tr><td>13</td><td><strong>Ayurveda × hardware</strong> (heated abhyanga roller, smart tongue scraper, oil-warmer)</td><td class="num">₹240–340 cr</td><td class="num">₹12–40 cr</td><td>Culturally Indian and hard to copy; almost no competitors; first-mover</td></tr>
       <tr><td>14</td><td><strong>Premium men's grooming hardware</strong> ₹4–10K</td><td class="num">₹420–800 cr</td><td class="num">₹25–50 cr</td><td>ASP-lift lever for the men's franchise; addresses unreached premium executive ICP</td></tr>
@@ -1612,6 +1703,31 @@ sup.cite {
       <tr><td>Adjacent growth · Q2-Q4 FY27</td><td>11</td><td class="num">₹195–460 cr</td><td>₹15–35 cr capex</td></tr>
       <tr><td>Contrarian pilot · scale on signal</td><td>9</td><td class="num">₹120–280 cr (risk-adj)</td><td>₹1.75 cr pilot · ₹15-25 cr if all scale</td></tr>
       <tr><td><strong>Aggregate Year-3 incremental (prob-weighted)</strong></td><td><strong>28 active bets</strong></td><td class="num"><strong>₹350–550 cr</strong></td><td><strong>₹40–80 cr</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-h">A Bigger Platform Choice: Beauty Tools or Broader Home Appliances</h3>
+  <p>A wider set of ideas sits one step beyond grooming: hard-water plug-in filters, recovery gadgets for fitness, home-spa tools, air purifiers, robotic floor cleaners, smart lighting and home automation. They split cleanly into two groups, and the difference matters.</p>
+  <p>The first group stays close to the brand. Hard-water filters, recovery and home-spa devices, and the red-light and laser tools above are still personal care and wellness. They use the same factory skills, the same shopper, and the same shelf. These belong in the plan now, and most are already captured in the bets above.</p>
+  <p>The second group, air purifiers, robotic cleaners, smart lighting and home automation, is a different business. The customer is the same household, but the category is home appliances and electricals, where the competition is larger and the brand permission is harder to earn. The group does make electrical products at the Yamuna plant, so the capability is not zero. The honest read: this is a real platform option, but it is a separate, deliberate decision, best taken after the listing and most likely under its own sub-brand rather than stretched onto the Vega grooming masthead. Flagging it now so it is a choice, not an accident.</p>
+
+  <h3 class="sub-h">Business-Model Upgrades: Quick, High-Return Wins</h3>
+  <p>Separate from new products, these are near-term fixes to how Vega sells and converts. Most need little capital and pay back fast. They also feed the operating system in Pillar 1, because every one of them runs on better data.</p>
+  <table class="data tight">
+    <thead>
+      <tr><th>Move</th><th>What it fixes</th><th>Why it pays</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Go direct on marketplaces</strong></td><td>Online today sells mostly through distributors, not Vega's own seller accounts</td><td>Captures the distributor margin, opens more platforms, and gives Vega the shopper data and pricing control it loses today</td></tr>
+      <tr><td><strong>Build performance marketing</strong></td><td>No real paid-media engine today</td><td>A tracked Meta, Google and marketplace-ads engine with measured return on ad spend turns demand on and off on purpose</td></tr>
+      <tr><td><strong>Recover bouncing shoppers</strong></td><td>Cart-drop and bounce traffic is lost</td><td>WhatsApp follow-up for users who leave without buying (tools such as KwikEngage) recovers sales already half-won</td></tr>
+      <tr><td><strong>CRM and post-order automation</strong></td><td>No structured repeat-purchase or cross-sell flow</td><td>WhatsApp-based thank-you, review, refill-reminder and cross-sell flows (KwikCheckout-type) lift repeat rate at near-zero cost</td></tr>
+      <tr><td><strong>AI calling and smart coupons</strong></td><td>Re-order and feedback outreach is manual</td><td>AI voice calls for re-orders and feedback, with coupon value tuned per customer, raise conversion without blanket discounting</td></tr>
+      <tr><td><strong>Add EMI on the D2C site</strong></td><td>No instalment option on the website</td><td>EMI lifts average order value and makes the premium devices easier to buy</td></tr>
+      <tr><td><strong>Plug into UPI discovery surfaces</strong></td><td>Low-cost acquisition channels untapped</td><td>UPI-app shopping pages and scratch-card rewards (CRED, PhonePe and similar) put Vega in front of high-intent buyers cheaply</td></tr>
+      <tr><td><strong>Reward and gifting catalogues</strong></td><td>No corporate or employee-gifting channel</td><td>Listing on rewards and gifting platforms (Advantage Club, Xoxoday Empuls, Vantage Circle) opens a new B2B2C demand stream</td></tr>
+      <tr><td><strong>At-home beauty-service partners</strong></td><td>Tools absent where the service happens</td><td>Partnering with at-home salon platforms (Urban Company, Yes Madam) places tools and consumables at the point of use</td></tr>
+      <tr><td><strong>Omni-channel integration</strong></td><td>Stock, price and customer view fragmented across channels</td><td>One unified view across all channels prevents stock-outs, price clashes and double-counting, and underpins every move above</td></tr>
     </tbody>
   </table>
 
